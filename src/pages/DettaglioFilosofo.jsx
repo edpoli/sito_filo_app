@@ -1,0 +1,95 @@
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { filosofi } from '../data/Filosofi'
+
+export default function DettaglioFilosofo() {
+    // 🔑 CONCETTO: useParams legge l'ID dall'URL
+    // Se l'URL è /filosofo/platone → id = "platone"
+    const { id } = useParams();
+
+    // 🔑 CONCETTO: useNavigate per tornare indietro via codice
+    const navigate = useNavigate();
+
+    // Cerca il filosofo nell'array usando l'id dall'URL
+    const f = filosofi.find((fil) => fil.id === id);
+
+    // 🔑 CONCETTO: rendering condizionale — se non esiste mostra 404
+    if (!f) {
+        return (
+            <div className="text-center py-20">
+                <p className="text-stone-400">Filosofo non trovato.</p>
+                <Link to="/" className="text-amber-500 underline mt-4 block">Torna alla home</Link>
+            </div>
+        );
+    }
+
+    return (
+        <div className="max-w-2xl mx-auto px-6 py-12">
+
+            {/* Bottone indietro — useNavigate(-1) = torna alla pagina precedente */}
+            <button
+                onClick={() => navigate(-1)}
+                className="text-stone-500 hover:text-amber-500 transition-colors mb-8 text-sm flex items-center gap-2"
+            >
+                ← Indietro
+            </button>
+
+            {/* Header */}
+            <div className={`border-l-4 ${f.colore.split(" ")[0]} pl-5 mb-8`}>
+                <div className="text-4xl mb-3">{f.emoji}</div>
+                <h1 className="text-4xl font-black text-stone-100 mb-1">{f.nome}</h1>
+                <p className="text-stone-500 text-sm">{f.anni} · {f.corrente}</p>
+            </div>
+
+            {/* Citazione */}
+            <div className="bg-stone-900 border border-stone-800 rounded-xl p-5 mb-6">
+                <p className={`italic text-sm ${f.colore.split(" ")[1]}`}>"{f.citazione}"</p>
+            </div>
+
+            {/* Bio */}
+            <p className="text-stone-300 leading-relaxed text-sm mb-8">{f.bio}</p>
+
+            {/* Opere */}
+            <div className="mb-6">
+                <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Opere principali</h2>
+                <div className="flex flex-wrap gap-2">
+                    {f.opere.map((o) => (
+                        <span key={o} className="text-xs bg-stone-800 text-stone-300 px-3 py-1.5 rounded-full border border-stone-700">
+                            {o}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            {/* Concetti */}
+            <div>
+                <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Concetti chiave</h2>
+                <div className="flex flex-wrap gap-2">
+                    {f.concetti.map((c) => (
+                        <span key={c} className={`text-xs px-3 py-1.5 rounded-full border ${f.colore}`}>
+                            {c}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            {/* Link agli altri filosofi */}
+            <div className="mt-10 pt-8 border-t border-stone-800">
+                <p className="text-xs text-stone-600 uppercase tracking-widest mb-4">Altri filosofi</p>
+                <div className="flex flex-wrap gap-2">
+                    {filosofi
+                        .filter((fil) => fil.id !== id)
+                        .map((fil) => (
+                            <Link
+                                key={fil.id}
+                                to={`/filosofo/${fil.id}`}
+                                className="text-sm text-stone-400 hover:text-amber-500 transition-colors"
+                            >
+                                {fil.nome} →
+                            </Link>
+                        ))}
+                </div>
+            </div>
+
+        </div>
+    );
+}
