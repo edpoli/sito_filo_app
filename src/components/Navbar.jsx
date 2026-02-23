@@ -1,20 +1,44 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Quiz from '../pages/Quiz';
+
 export default function Navbar() {
+    const [aperto, setAperto] = useState(false)
+
     return (
-        <nav className="border-b border-stone-800 px-6 py-4 flex items-center justify-between">
+        <nav className="border-b border-stone-800 px-6 py-4">
+            <div className="flex items-center justify-between">
 
-            <Link to="/" className="font-black text-amber-500 tracking-wider text-sm uppercase">
-                ♟ Filosofia Applicata
-            </Link>
+                {/* Logo */}
+                <Link to="/" className="font-black text-amber-500 tracking-wider text-sm uppercase">
+                    ♟ Filosofia Applicata
+                </Link>
 
-            <Link to="/quiz" className='font-black text-stone-100 tracking-wider text-sm uppercase'> Quiz </Link>
-            <Link to="/citazioni" className='font-black text-stone-100 tracking-wider text-sm uppercase'> Citazioni API </Link>
+                {/* Bottone hamburger — visibile solo su mobile */}
+                <button
+                    onClick={() => setAperto(!aperto)}
+                    className="md:hidden text-stone-400 hover:text-amber-500 transition-colors"
+                >
+                    {aperto ? "✕" : "☰"}
+                </button>
 
+                {/* Links — visibili su desktop, nascosti su mobile */}
+                <div className="hidden md:flex gap-6">
+                    <Link to="/" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Home</Link>
+                    <Link to="/enciclopedia" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/quiz" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
+                    <Link to="/citazioni" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
+                </div>
+            </div>
 
-            <Link to="/" className="text-stone-500 hover:text-stone-300 text-xs transition-colors">
-                Tutti i filosofi
-            </Link>
+            {/* Menu mobile — appare solo quando aperto */}
+            {aperto && (
+                <div className="md:hidden flex flex-col gap-4 mt-4 pb-2">
+                    <Link to="/" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Home</Link>
+                    <Link to="/enciclopedia" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/quiz" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
+                    <Link to="/citazioni" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
+                </div>
+            )}
         </nav>
-    );
+    )
 }
