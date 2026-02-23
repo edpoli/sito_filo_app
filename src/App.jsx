@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Navbar from './components/Navbar';
 import Quiz from './pages/Quiz';
 import Citazioni from './pages/Citazioni';
+import Enciclopedia from './pages/Enciclopedia';
 
 
 // APP PRINCIPALE — qui vive il router
@@ -27,6 +28,8 @@ export default function App() {
           <Route path="/filosofo/:id" element={<DettaglioFilosofo />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/citazioni" element={<Citazioni />} />
+          <Route path="/enciclopedia" element={<Enciclopedia />} />
+
 
 
           {/* Catch-all — qualsiasi URL non riconosciuto */}

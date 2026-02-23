@@ -1,36 +1,42 @@
-import { Link } from 'react-router-dom';
-import { filosofi } from '../data/Filosofi';
+import { Link } from 'react-router-dom'
+
 export default function Home() {
     return (
-        <div className="max-w-2xl mx-auto px-6 py-12">
-            <div className="text-center mb-12">
-                <p className="text-xs tracking-widest text-amber-500 uppercase mb-3">Filosofia Applicata</p>
-                <h1 className="text-5xl font-black text-stone-100 mb-4 leading-tight">
-                    Enciclopedia<br />
-                    <span className="text-amber-500">Filosofica</span>
-                </h1>
-                <p className="text-stone-400 text-sm leading-relaxed max-w-sm mx-auto">
-                    Esplora i grandi filosofi della storia. Clicca su un nome per scoprire vita, opere e concetti.
-                </p>
-            </div>
+        <div className="min-h-screen bg-green-950 text-stone-100 flex items-center justify-center p-8 font-serif">
+            <div className="w-full max-w-lg text-center">
 
-            {/* 🔑 CONCETTO: Link al posto di <a href> */}
-            <div className="flex flex-col gap-3">
-                {filosofi.map((f) => (
+                <p className="text-yellow-600 text-xs tracking-widest uppercase mb-5">
+                    Benvenuto su
+                </p>
+                <h1 className="text-5xl text-slate-100 font-black mb-2">Filosofia</h1>
+                <h2 className="text-5xl font-black text-orange-700 mb-8">Applicata</h2>
+                <p className="text-stone-400 mb-12 text-sm leading-relaxed">
+                    Esplora i grandi filosofi della storia, scopri a quale ti avvicini di più e leggi le loro citazioni.
+                </p>
+
+                {/* Link alle tre sezioni */}
+                <div className="flex flex-col gap-3">
                     <Link
-                        key={f.id}
-                        to={`/filosofo/${f.id}`}
-                        className="flex items-center gap-4 p-5 bg-stone-900 border border-stone-800 rounded-xl hover:border-amber-500 transition-all duration-200 group"
+                        to="/enciclopedia"
+                        className="px-8 py-4 bg-yellow-500 text-zinc-900 rounded-xl font-black text-base hover:bg-yellow-400 transition-all duration-200"
                     >
-                        <span className="text-3xl">{f.emoji}</span>
-                        <div className="flex-1">
-                            <div className="font-bold text-stone-100 text-lg group-hover:text-amber-400 transition-colors">{f.nome}</div>
-                            <div className="text-stone-500 text-xs mt-1">{f.anni} · {f.corrente}</div>
-                        </div>
-                        <span className="text-stone-600 group-hover:text-amber-500 transition-colors">→</span>
+                        🏛️ Enciclopedia Filosofica
                     </Link>
-                ))}
+                    <Link
+                        to="/quiz"
+                        className="px-8 py-4 bg-transparent border border-amber-500 text-amber-400 rounded-xl font-black text-base hover:bg-amber-500 hover:text-zinc-900 transition-all duration-200"
+                    >
+                        🧠 Quiz — Quale filosofo sei?
+                    </Link>
+                    <Link
+                        to="/citazioni"
+                        className="px-8 py-4 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-black text-base hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
+                    >
+                        💬 Citazioni Filosofiche
+                    </Link>
+                </div>
+
             </div>
         </div>
-    );
+    )
 }
