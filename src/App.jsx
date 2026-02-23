@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from './pages/NotFound';
 import DettaglioFilosofo from './pages/DettaglioFilosofo';
 import Home from "./pages/Home";
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import Quiz from './pages/Quiz';
 import Citazioni from './pages/Citazioni';
 
