@@ -22,7 +22,7 @@ export default function Lessico() {
                 </h1>
                 <div className="w-12 h-px bg-stone-700 mx-auto mb-4" />
                 <p className="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">
-                    Venticinque concetti fondamentali. Seleziona un termine per esplorarne definizione, uso e storia.
+                    I concetti fondamentali. Seleziona un termine per esplorarne definizione, uso e storia.
                 </p>
             </div>
 
@@ -32,11 +32,10 @@ export default function Lessico() {
                     <button
                         key={cat}
                         onClick={() => setFiltro(cat)}
-                        className={`text-xs px-3 py-1.5 rounded border transition-colors cursor-pointer ${
-                            filtro === cat
-                                ? "border-amber-500 text-amber-500 bg-amber-500/10"
-                                : "border-stone-700 text-stone-500 hover:border-stone-500 hover:text-stone-300"
-                        }`}
+                        className={`text-xs px-3 py-1.5 rounded border transition-colors cursor-pointer ${filtro === cat
+                            ? "border-amber-500 text-amber-500 bg-amber-500/10"
+                            : "border-stone-700 text-stone-500 hover:border-stone-500 hover:text-stone-300"
+                            }`}
                     >
                         {cat}
                     </button>
