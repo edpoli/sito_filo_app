@@ -299,11 +299,27 @@ function Risposta({ testo, onClick, selezionata }) {
 function Risultato({ vincitoreId, onRicomincia }) {
   const f = filosofiQuiz[vincitoreId];
   const [animato, setAnimato] = useState(false);
+  const [copiato, setCopiato] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setAnimato(true), 150);
     return () => clearTimeout(t);
   }, []);
+
+  const condividi = async () => {
+    const testo = `Sono ${f.emoji} ${f.nome} nel quiz filosofico di Filosofia Applicata!\n"${f.idea}"`
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "Quiz Filosofico – Filosofia Applicata", text: testo })
+      } catch { /* annullato dall'utente */ }
+    } else {
+      try {
+        await navigator.clipboard.writeText(testo)
+        setCopiato(true)
+        setTimeout(() => setCopiato(false), 2000)
+      } catch { /* silent fail */ }
+    }
+  }
 
   const statsConfig = [
     { key: "coerenza", label: "Coerenza", tipo: "bar" },
@@ -374,6 +390,12 @@ function Risultato({ vincitoreId, onRicomincia }) {
         >
           Scopri di più →
         </Link>
+        <button
+          onClick={condividi}
+          className="flex-1 py-3 px-5 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
+        >
+          {copiato ? "Copiato ✓" : "Condividi"}
+        </button>
         <button
           onClick={onRicomincia}
           className="flex-1 py-3 px-5 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
