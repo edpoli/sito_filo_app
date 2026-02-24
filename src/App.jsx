@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Quiz from './pages/Quiz';
 import Citazioni from './pages/Citazioni';
 import Enciclopedia from './pages/Enciclopedia';
+import Contatti from './pages/Contatti';
 
 
 // APP PRINCIPALE — qui vive il router
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/citazioni" element={<Citazioni />} />
           <Route path="/enciclopedia" element={<Enciclopedia />} />
+          <Route path="/contatti" element={<Contatti />} />
 
 
 

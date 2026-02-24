@@ -8,12 +8,12 @@ export default function Navbar() {
         <nav className="border-b border-stone-800 px-6 py-4">
             <div className="flex items-center justify-between">
 
-                {/* Logo */}
+
                 <Link to="/" className="font-black text-amber-500 tracking-wider text-sm uppercase">
                     ♟ Filosofia Applicata
                 </Link>
 
-                {/* Bottone hamburger — visibile solo su mobile */}
+
                 <button
                     onClick={() => setAperto(!aperto)}
                     className="md:hidden text-stone-400 hover:text-amber-500 transition-colors"
@@ -27,6 +27,7 @@ export default function Navbar() {
                     <Link to="/enciclopedia" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
                     <Link to="/quiz" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
                     <Link to="/citazioni" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
+                    <Link to="/contatti" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Contatti</Link>
                 </div>
             </div>
 
@@ -37,6 +38,7 @@ export default function Navbar() {
                     <Link to="/enciclopedia" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
                     <Link to="/quiz" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
                     <Link to="/citazioni" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
+                    <Link to="/contatti" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Contatti</Link>
                 </div>
             )}
         </nav>
