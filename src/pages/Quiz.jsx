@@ -168,9 +168,8 @@ const punteggiIniziali = {
 };
 
 // ─── DOMANDE ─────────────────────────────────────────────────────────────────
-// Distribuzione: 13 filosofi su 30 slot (10 domande × 3 risposte)
-// 4 filosofi appaiono 3 volte (derrida, foucault, heidegger, arendt)
-// 9 filosofi appaiono 2 volte (tutti gli altri)
+// Distribuzione: 13 filosofi su 40 slot (10 domande × 4 risposte)
+// 12 filosofi appaiono 3 volte, foucault appare 4 volte (slot extra)
 
 const domande = [
   {
@@ -180,6 +179,7 @@ const domande = [
       { testo: "Noti che ogni simbolo rimanda a un altro, in una catena senza fine", filosofo: "derrida" },
       { testo: "Cerchi di descrivere l'esperienza così com'è, prima di interpretare", filosofo: "husserl" },
       { testo: "Sei già a metà seduta: vuoi trovare l'archetipo nascosto nel racconto", filosofo: "jung" },
+      { testo: "Ascolti con attenzione clinica: ogni dettaglio potrebbe essere un sintomo rivelatore", filosofo: "freud" },
     ],
   },
   {
@@ -189,6 +189,7 @@ const domande = [
       { testo: "Chi ha il potere di scrivere così, e perché la società lo autorizza?", filosofo: "foucault" },
       { testo: "Se non riesco a capirlo, il problema è probabilmente nel linguaggio", filosofo: "wittgenstein" },
       { testo: "Ogni grande contraddizione porta in sé la propria soluzione", filosofo: "hegel" },
+      { testo: "Cerco le passioni dell'autore: nessun testo nasce dal nulla, c'è sempre una storia", filosofo: "bodei" },
     ],
   },
   {
@@ -198,6 +199,7 @@ const domande = [
       { testo: "Le radici danno il suolo per costruire — non le sento come catene", filosofo: "bodei" },
       { testo: "Le radici? Un ostacolo al divenire. Meglio il rizoma!", filosofo: "deleuze" },
       { testo: "Apparteniamo a una terra e a un linguaggio prima ancora di sceglierlo", filosofo: "heidegger" },
+      { testo: "Le radici che non nutrono diventano sradicamento — la peggiore sofferenza umana", filosofo: "weil" },
     ],
   },
   {
@@ -207,6 +209,7 @@ const domande = [
       { testo: "È l'immagine del male ordinario: l'assenza di pensiero è la vera pericolosità", filosofo: "arendt" },
       { testo: "Provo compassione: è sradicato, lontano da sé stesso e dal mondo", filosofo: "weil" },
       { testo: "Mi chiedo che ruolo stia recitando nel grande gioco dell'esistenza", filosofo: "fink" },
+      { testo: "È la realizzazione dello Stato: l'individuo che trova il suo posto nel tutto razionale", filosofo: "hegel" },
     ],
   },
   {
@@ -216,6 +219,7 @@ const domande = [
       { testo: "Stratificato: le parole significano sempre più di quanto sembrano dire", filosofo: "derrida" },
       { testo: "Clinico e preciso, con attenzione ai lapsus e alle contraddizioni latenti", filosofo: "freud" },
       { testo: "Minimalista: se non si può dire chiaramente, meglio tacere", filosofo: "wittgenstein" },
+      { testo: "Descrittivo e metodico: prima bisogna vedere con precisione, poi — e solo poi — interpretare", filosofo: "husserl" },
     ],
   },
   {
@@ -225,6 +229,7 @@ const domande = [
       { testo: "Un vecchio manicomio o prigione storica: dove il potere si vede ancora", filosofo: "foucault" },
       { testo: "Un museo di arte primitiva: pieno di simboli dell'inconscio collettivo", filosofo: "jung" },
       { testo: "Un posto tranquillo dove osservare come la coscienza percepisce il nuovo", filosofo: "husserl" },
+      { testo: "Un teatro antico o un labirinto: luoghi dove il gioco del cosmo è ancora visibile", filosofo: "fink" },
     ],
   },
   {
@@ -234,6 +239,7 @@ const domande = [
       { testo: "All'essere che si rivela nella natura — l'apertura silenziosa del Dasein", filosofo: "heidegger" },
       { testo: "All'inevitabile ritorno della luce: ogni tramonto porta la propria negazione", filosofo: "hegel" },
       { testo: "Alle passioni che quel paesaggio ha acceso in generazioni prima di me", filosofo: "bodei" },
+      { testo: "Al divenire puro: questo cielo non è mai lo stesso, e nemmeno io sono lo stesso", filosofo: "deleuze" },
     ],
   },
   {
@@ -243,6 +249,7 @@ const domande = [
       { testo: "I desideri sono macchine: producono, si connettono, si trasformano", filosofo: "deleuze" },
       { testo: "Li trasformo in attenzione verso l'altro — è lì che trovo il senso vero", filosofo: "weil" },
       { testo: "Li osservo: ogni desiderio rivela qualcosa del mio inconscio profondo", filosofo: "freud" },
+      { testo: "Li analizzo con sospetto: spesso il linguaggio del desiderio inganna — serve chiarezza", filosofo: "wittgenstein" },
     ],
   },
   {
@@ -252,6 +259,7 @@ const domande = [
       { testo: "È uno spazio di libertà: anche la politica, nel bene e nel male, è un gioco", filosofo: "arendt" },
       { testo: "Il gioco è il simbolo del cosmo: il mondo stesso gioca, e noi con lui", filosofo: "fink" },
       { testo: "Il gioco ha regole, e le regole sono sempre strutture di potere mascherate", filosofo: "foucault" },
+      { testo: "Nel gioco affiorano gli archetipi: è individuazione travestita da svago", filosofo: "jung" },
     ],
   },
   {
@@ -261,6 +269,7 @@ const domande = [
       { testo: "Una biblioteca labirintica: ogni libro rimanda a un altro, all'infinito", filosofo: "derrida" },
       { testo: "Una piazza pubblica: il pensiero nasce dal confronto con gli altri", filosofo: "arendt" },
       { testo: "Un sentiero nel bosco: il pensiero cammina, non si siede", filosofo: "heidegger" },
+      { testo: "Un archivio storico: pensare significa capire i discorsi che ci hanno formato", filosofo: "foucault" },
     ],
   },
 ];
