@@ -294,197 +294,16 @@ function Risposta({ testo, onClick, selezionata }) {
   );
 }
 
-// ─── CARD IMMAGINE ────────────────────────────────────────────────────────────
-
-const coloriHex = {
-  derrida: '#fb7185', foucault: '#fb923c', hegel: '#60a5fa',
-  heidegger: '#4ade80', wittgenstein: '#22d3ee', bodei: '#a3e635',
-  deleuze: '#34d399', weil: '#facc15', arendt: '#a78bfa',
-  husserl: '#38bdf8', fink: '#818cf8', jung: '#fbbf24', freud: '#f87171',
-}
-
-function rrect(ctx, x, y, w, h, r) {
-  ctx.beginPath()
-  ctx.moveTo(x + r, y)
-  ctx.arcTo(x + w, y, x + w, y + h, r)
-  ctx.arcTo(x + w, y + h, x, y + h, r)
-  ctx.arcTo(x, y + h, x, y, r)
-  ctx.arcTo(x, y, x + w, y, r)
-  ctx.closePath()
-}
-
-function canvasWrapText(ctx, text, x, y, maxWidth, lineHeight) {
-  const words = text.split(' ')
-  let line = ''
-  let curY = y
-  for (const word of words) {
-    const test = line ? `${line} ${word}` : word
-    if (ctx.measureText(test).width > maxWidth && line) {
-      ctx.fillText(line, x, curY)
-      line = word
-      curY += lineHeight
-    } else {
-      line = test
-    }
-  }
-  if (line) ctx.fillText(line, x, curY)
-}
-
-async function generaCardImmagine(vincitoreId, f) {
-  const accent = coloriHex[vincitoreId]
-  const W = 1080, H = 1080, PAD = 72
-  const canvas = document.createElement('canvas')
-  canvas.width = W
-  canvas.height = H
-  const ctx = canvas.getContext('2d')
-
-  // Background
-  ctx.fillStyle = '#0c0a09'
-  ctx.fillRect(0, 0, W, H)
-
-  // Top accent border
-  ctx.fillStyle = accent
-  ctx.fillRect(0, 0, W, 8)
-
-  // Brand
-  ctx.fillStyle = '#57534e'
-  ctx.font = '500 20px system-ui, -apple-system, sans-serif'
-  ctx.textAlign = 'center'
-  ctx.fillText('FILOSOFIA APPLICATA', W / 2, 72)
-
-  // Divider
-  ctx.fillStyle = '#292524'
-  ctx.fillRect(PAD, 92, W - PAD * 2, 1)
-
-  // Emoji
-  ctx.font = '90px serif'
-  ctx.textAlign = 'center'
-  ctx.fillText(f.emoji, W / 2, 220)
-
-  // "AFFINITÀ RILEVATA"
-  ctx.fillStyle = '#78716c'
-  ctx.font = '400 17px system-ui, sans-serif'
-  ctx.fillText('AFFINITÀ RILEVATA', W / 2, 260)
-
-  // Philosopher name — riduce il font finché entra
-  ctx.fillStyle = '#fafaf9'
-  let namePx = 56
-  ctx.font = `bold ${namePx}px Georgia, serif`
-  while (ctx.measureText(f.nome).width > W - PAD * 2 - 20) {
-    namePx -= 2
-    ctx.font = `bold ${namePx}px Georgia, serif`
-  }
-  ctx.fillText(f.nome, W / 2, 328)
-
-  // Years · Corrente
-  ctx.fillStyle = '#78716c'
-  ctx.font = '400 21px system-ui, sans-serif'
-  ctx.fillText(`${f.anni}  ·  ${f.corrente}`, W / 2, 374)
-
-  // Short colored separator
-  ctx.fillStyle = accent
-  ctx.fillRect(W / 2 - 36, 400, 72, 3)
-
-  // "STATISTICHE" heading
-  ctx.fillStyle = '#57534e'
-  ctx.font = '500 16px system-ui, sans-serif'
-  ctx.textAlign = 'left'
-  ctx.fillText('STATISTICHE', PAD, 442)
-
-  // Stat bars (4 stat)
-  const statItems = [
-    { key: 'coerenza', label: 'Coerenza' },
-    { key: 'influenza', label: 'Influenza' },
-    { key: 'chiarezza', label: 'Chiarezza' },
-    { key: 'memabilita', label: 'Memabilità' },
-  ]
-  const barW = W - PAD * 2
-  let sy = 464
-  for (const { key, label } of statItems) {
-    const val = f.stats[key]
-    ctx.fillStyle = '#a8a29e'
-    ctx.font = '400 17px system-ui, sans-serif'
-    ctx.textAlign = 'left'
-    ctx.fillText(label, PAD, sy)
-    ctx.fillStyle = accent
-    ctx.font = 'bold 17px system-ui, sans-serif'
-    ctx.textAlign = 'right'
-    ctx.fillText(String(val), W - PAD, sy)
-    sy += 22
-    rrect(ctx, PAD, sy, barW, 8, 4)
-    ctx.fillStyle = '#292524'
-    ctx.fill()
-    rrect(ctx, PAD, sy, Math.max(barW * (val / 100), 8), 8, 4)
-    ctx.fillStyle = accent
-    ctx.fill()
-    sy += 36
-  }
-
-  // Quote section
-  sy += 20
-  ctx.fillStyle = accent
-  ctx.fillRect(PAD, sy, 4, 110)
-  ctx.fillStyle = '#d6d3d1'
-  ctx.font = 'italic 25px Georgia, serif'
-  ctx.textAlign = 'left'
-  canvasWrapText(ctx, `"${f.idea}"`, PAD + 22, sy + 40, W - PAD * 2 - 26, 38)
-
-  // Bottom accent bar
-  ctx.fillStyle = accent
-  ctx.globalAlpha = 0.25
-  ctx.fillRect(0, H - 8, W, 8)
-  ctx.globalAlpha = 1
-
-  // Footer URL
-  ctx.fillStyle = '#44403c'
-  ctx.font = '400 18px system-ui, sans-serif'
-  ctx.textAlign = 'center'
-  ctx.fillText(window.location.origin, W / 2, H - 42)
-
-  return new Promise(resolve => canvas.toBlob(resolve, 'image/png'))
-}
-
 // ─── COMPONENTE: risultato finale ─────────────────────────────────────────────
 
 function Risultato({ vincitoreId, onRicomincia }) {
   const f = filosofiQuiz[vincitoreId];
   const [animato, setAnimato] = useState(false);
-  const [copiato, setCopiato] = useState(false);
-  const [generando, setGenerando] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setAnimato(true), 150);
     return () => clearTimeout(t);
   }, []);
-
-  const condividi = async () => {
-    setGenerando(true)
-    try {
-      const blob = await generaCardImmagine(vincitoreId, f)
-      const nomeFile = `profilo-${f.nome.toLowerCase().replace(/\s+/g, '-')}.png`
-      const file = new File([blob], nomeFile, { type: 'image/png' })
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ title: 'Il mio profilo filosofico', files: [file] })
-      } else {
-        const url = URL.createObjectURL(blob)
-        const a = document.createElement('a')
-        a.href = url
-        a.download = nomeFile
-        a.click()
-        URL.revokeObjectURL(url)
-      }
-    } catch (err) {
-      if (err?.name !== 'AbortError') {
-        try {
-          await navigator.clipboard.writeText(`Sono ${f.emoji} ${f.nome} nel quiz di Filosofia Applicata!\n"${f.idea}"`)
-          setCopiato(true)
-          setTimeout(() => setCopiato(false), 2000)
-        } catch { /* silent fail */ }
-      }
-    } finally {
-      setGenerando(false)
-    }
-  }
 
   const statsConfig = [
     { key: "coerenza", label: "Coerenza", tipo: "bar" },
@@ -555,13 +374,6 @@ function Risultato({ vincitoreId, onRicomincia }) {
         >
           Scopri di più →
         </Link>
-        <button
-          onClick={condividi}
-          disabled={generando}
-          className="flex-1 py-3 px-5 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-200 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {generando ? "Generando..." : copiato ? "Copiato ✓" : "Condividi"}
-        </button>
         <button
           onClick={onRicomincia}
           className="flex-1 py-3 px-5 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
