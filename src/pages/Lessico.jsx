@@ -18,7 +18,7 @@ export default function Lessico() {
             <div className="text-center mb-10">
                 <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">Filosofia Applicata</p>
                 <h1 className="text-3xl font-bold text-stone-100 mb-3 tracking-wide">
-                    Lessico <span className="text-amber-500">Filosofico</span>
+                    <span className="text-amber-500"> Parole </span>  <span >e </span> <span className="text-amber-500">Concetti</span>
                 </h1>
                 <div className="w-12 h-px bg-stone-700 mx-auto mb-4" />
                 <p className="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">
