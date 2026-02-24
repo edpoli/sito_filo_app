@@ -1,6 +1,36 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { filosofi } from '../data/Filosofi'
 
+const lessicoMap = {
+    "Decostruzione": "decostruzione",
+    "Différance": "differance",
+    "Logocentrismo": "logocentrismo",
+    "Biopotere": "biopotere",
+    "Episteme": "episteme",
+    "Panopticon": "panopticon",
+    "Dialettica": "dialettica",
+    "Spirito Assoluto": "spirito-assoluto",
+    "Aufhebung": "aufhebung",
+    "Geist": "spirito-assoluto",
+    "Esserci (Dasein)": "dasein",
+    "Cura": "cura",
+    "Giochi linguistici": "giochi-linguistici",
+    "Rizoma": "rizoma",
+    "Divenire": "divenire",
+    "Piano di immanenza": "piano-di-immanenza",
+    "Corpo senza organi": "corpo-senza-organi",
+    "Sradicamento": "sradicamento",
+    "Banalità del male": "banalita-del-male",
+    "Vita activa": "vita-activa",
+    "Intenzionalità": "intenzionalita",
+    "Epoché": "epoche",
+    "Mondo della vita": "mondo-della-vita",
+    "Gioco cosmologico": "gioco-cosmologico",
+    "Inconscio collettivo": "inconscio-collettivo",
+    "Individuazione": "individuazione",
+    "Es, Io, Super-io": "es-io-superio",
+}
+
 export default function DettaglioFilosofo() {
     // 🔑 CONCETTO: useParams legge l'ID dall'URL
     // Se l'URL è /filosofo/platone → id = "platone"
@@ -64,11 +94,22 @@ export default function DettaglioFilosofo() {
             <div>
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Concetti chiave</h2>
                 <div className="flex flex-wrap gap-2">
-                    {f.concetti.map((c) => (
-                        <span key={c} className={`text-xs px-3 py-1.5 rounded-full border ${f.colore}`}>
-                            {c}
-                        </span>
-                    ))}
+                    {f.concetti.map((c) => {
+                        const lessicoId = lessicoMap[c]
+                        return lessicoId ? (
+                            <Link
+                                key={c}
+                                to={`/lessico/${lessicoId}`}
+                                className={`text-xs px-3 py-1.5 rounded-full border ${f.colore} hover:opacity-70 transition-opacity`}
+                            >
+                                {c} →
+                            </Link>
+                        ) : (
+                            <span key={c} className={`text-xs px-3 py-1.5 rounded-full border ${f.colore} opacity-60`}>
+                                {c}
+                            </span>
+                        )
+                    })}
                 </div>
             </div>
 
