@@ -296,7 +296,7 @@ function Risposta({ testo, onClick, selezionata }) {
 
 // ─── COMPONENTE: risultato finale ─────────────────────────────────────────────
 
-function Risultato({ punteggi, vincitoreId, onRicomincia }) {
+function Risultato({ vincitoreId, onRicomincia }) {
   const f = filosofiQuiz[vincitoreId];
   const [animato, setAnimato] = useState(false);
 
@@ -306,11 +306,11 @@ function Risultato({ punteggi, vincitoreId, onRicomincia }) {
   }, []);
 
   const statsConfig = [
-    { key: "coerenza",   label: "Coerenza",    tipo: "bar" },
-    { key: "influenza",  label: "Influenza",   tipo: "bar" },
-    { key: "opere",      label: "N° Opere",    tipo: "numero" },
-    { key: "chiarezza",  label: "Chiarezza",   tipo: "bar" },
-    { key: "memabilita", label: "Memabilità",  tipo: "bar" },
+    { key: "coerenza", label: "Coerenza", tipo: "bar" },
+    { key: "influenza", label: "Influenza", tipo: "bar" },
+    { key: "opere", label: "N° Opere", tipo: "numero" },
+    { key: "chiarezza", label: "Chiarezza", tipo: "bar" },
+    { key: "memabilita", label: "Memabilità", tipo: "bar" },
   ];
 
   return (

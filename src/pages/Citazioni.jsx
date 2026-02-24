@@ -10,7 +10,6 @@ export default function Citazioni() {
     const controllerRef = useRef(null)
 
     const caricaCitazioni = () => {
-        // Annulla eventuale fetch precedente ancora in corso
         if (controllerRef.current) controllerRef.current.abort()
         controllerRef.current = new AbortController()
 
@@ -119,7 +118,7 @@ export default function Citazioni() {
                                         "{citazioneCorrente.quote}"
                                     </p>
                                     <p className="text-stone-300 font-semibold">
-                                        {citazioneCorrente.philosopher?.name ?? "Autore sconosciuto"}
+                                        {citazioneCorrente.philosopher?.name ?? ""}
                                     </p>
                                     {citazioneCorrente.work && (
                                         <p className="text-yellow-300 text-sm mt-1">
