@@ -25,6 +25,7 @@ export default function Navbar() {
                 <div className="hidden md:flex gap-6">
                     <Link to="/" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Home</Link>
                     <Link to="/enciclopedia" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/mappa" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
                     <Link to="/citazioni" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
@@ -37,6 +38,7 @@ export default function Navbar() {
                 <div className="md:hidden flex flex-col gap-4 mt-4 pb-2">
                     <Link to="/" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Home</Link>
                     <Link to="/enciclopedia" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/mappa" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
                     <Link to="/citazioni" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
