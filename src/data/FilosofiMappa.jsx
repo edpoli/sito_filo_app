@@ -67,6 +67,16 @@ const mappaExtra = {
     posizione: { x: 55, y: 87 },
     connessioni: ['freud'],
   },
+
+  han: {
+    nomeBreve: 'B.C. Han',
+    posizione: {},
+    connessioni: ['agamben', 'arendt', 'foucault', 'heidegger',]
+  }
+
+
+
+
 }
 
 // Mappa il colore Tailwind (es. "border-rose-400 text-rose-400") → hex

@@ -93,18 +93,13 @@ const filosofi = [
     connessioni: [],
   },
   {
-    id: 'butler', nome: 'Judith Butler', emoji: '🌈', gruppo: 'Teoria queer', anni: '1956–',
+    id: 'butler', nome: 'Butler', emoji: '🌈', gruppo: 'Teoria queer', anni: '1956–',
     citazione: 'Il genere è una performance, non un\'essenza.',
     connessioni: ['cavarero'],
   },
   {
     id: 'cavarero', nome: 'Cavarero', emoji: '🗣️', gruppo: 'Filosofia femminista', anni: '1947–',
     citazione: 'Ognuno di noi è unico e irripetibile.',
-    connessioni: [],
-  },
-  {
-    id: 'costa', nome: 'Vincenzo Costa', emoji: '🔭', gruppo: 'Fenomenologia', anni: '1963–',
-    citazione: 'La fenomenologia comprende il senso dell\'esperienza vissuta.',
     connessioni: [],
   },
   {
@@ -115,7 +110,7 @@ const filosofi = [
   {
     id: 'han', nome: 'Byung-Chul Han', emoji: '📱', gruppo: 'Filosofia della tecnologia', anni: '1959–',
     citazione: 'La società della trasparenza è una società della sfiducia.',
-    connessioni: [],
+    connessioni: ['foucault, arendt, heidegger'],
   },
   {
     id: 'haraway', nome: 'Haraway', emoji: '🤖', gruppo: 'Studi femministi della scienza', anni: '1944–',
@@ -138,39 +133,39 @@ const filosofi = [
     connessioni: [],
   },
   {
-    id: 'rovelli', nome: 'Carlo Rovelli', emoji: '⚛️', gruppo: 'Filosofia della fisica', anni: '1956–',
+    id: 'rovelli', nome: 'Rovelli', emoji: '⚛️', gruppo: 'Filosofia della fisica', anni: '1956–',
     citazione: 'Non siamo altro che una rete di relazioni.',
     connessioni: [],
   },
 ]
 
 const coloriGruppo = {
-  'Idealismo':                      { bg: '#1e3a5f', bordo: '#60a5fa', testo: '#93c5fd' },
-  'Fenomenologia':                  { bg: '#14432a', bordo: '#34d399', testo: '#6ee7b7' },
-  'Psicoanalisi':                   { bg: '#2d1b69', bordo: '#a78bfa', testo: '#c4b5fd' },
-  'Materialismo':                   { bg: '#7f1d1d', bordo: '#f87171', testo: '#fca5a5' },
-  'Esistenzialismo':                { bg: '#431407', bordo: '#fb923c', testo: '#fdba74' },
-  'Filosofia del Linguaggio':       { bg: '#164e63', bordo: '#22d3ee', testo: '#67e8f9' },
-  'Filosofia Politica':             { bg: '#312e81', bordo: '#818cf8', testo: '#a5b4fc' },
-  'Post-strutturalismo':            { bg: '#500724', bordo: '#f472b6', testo: '#f9a8d4' },
-  'Decostruzionismo':               { bg: '#4c0519', bordo: '#fb7185', testo: '#fda4af' },
-  'Mistica':                        { bg: '#451a03', bordo: '#fbbf24', testo: '#fcd34d' },
-  'Filosofia Contemporanea':        { bg: '#14532d', bordo: '#86efac', testo: '#bbf7d0' },
-  'Biopolitica':                    { bg: '#2d0505', bordo: '#ef4444', testo: '#fca5a5' },
-  'Ermeneutica':                    { bg: '#2d1a00', bordo: '#d97706', testo: '#fcd34d' },
-  'Teoria queer':                   { bg: '#500636', bordo: '#f472b6', testo: '#f9a8d4' },
-  'Filosofia femminista':           { bg: '#0c2626', bordo: '#2dd4bf', testo: '#5eead4' },
-  'Filosofia della tecnologia':     { bg: '#1a1a24', bordo: '#64748b', testo: '#94a3b8' },
+  'Idealismo': { bg: '#1e3a5f', bordo: '#60a5fa', testo: '#93c5fd' },
+  'Fenomenologia': { bg: '#14432a', bordo: '#34d399', testo: '#6ee7b7' },
+  'Psicoanalisi': { bg: '#2d1b69', bordo: '#a78bfa', testo: '#c4b5fd' },
+  'Materialismo': { bg: '#7f1d1d', bordo: '#f87171', testo: '#fca5a5' },
+  'Esistenzialismo': { bg: '#431407', bordo: '#fb923c', testo: '#fdba74' },
+  'Filosofia del Linguaggio': { bg: '#164e63', bordo: '#22d3ee', testo: '#67e8f9' },
+  'Filosofia Politica': { bg: '#312e81', bordo: '#818cf8', testo: '#a5b4fc' },
+  'Post-strutturalismo': { bg: '#500724', bordo: '#f472b6', testo: '#f9a8d4' },
+  'Decostruzionismo': { bg: '#4c0519', bordo: '#fb7185', testo: '#fda4af' },
+  'Mistica': { bg: '#451a03', bordo: '#fbbf24', testo: '#fcd34d' },
+  'Filosofia Contemporanea': { bg: '#14532d', bordo: '#86efac', testo: '#bbf7d0' },
+  'Biopolitica': { bg: '#2d0505', bordo: '#ef4444', testo: '#fca5a5' },
+  'Ermeneutica': { bg: '#2d1a00', bordo: '#d97706', testo: '#fcd34d' },
+  'Teoria queer': { bg: '#500636', bordo: '#f472b6', testo: '#f9a8d4' },
+  'Filosofia femminista': { bg: '#0c2626', bordo: '#2dd4bf', testo: '#5eead4' },
+  'Filosofia della tecnologia': { bg: '#1a1a24', bordo: '#64748b', testo: '#94a3b8' },
   'Studi femministi della scienza': { bg: '#0a1f12', bordo: '#16a34a', testo: '#4ade80' },
-  'Filosofia morale':               { bg: '#261a00', bordo: '#fcd34d', testo: '#fde68a' },
-  'Filosofia della fisica':         { bg: '#0a1520', bordo: '#7dd3fc', testo: '#bae6fd' },
+  'Filosofia morale': { bg: '#261a00', bordo: '#fcd34d', testo: '#fde68a' },
+  'Filosofia della fisica': { bg: '#0a1520', bordo: '#7dd3fc', testo: '#bae6fd' },
 }
 
 // ID dei filosofi con scheda nell'enciclopedia
 const HAI_SCHEDA = new Set([
   'derrida', 'foucault', 'hegel', 'heidegger', 'wittgenstein',
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
-  'marx', 'nietzsche',
+  'marx', 'nietzsche', 'byung-chul han',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero', 'costa',
   'esposito', 'han', 'haraway', 'jankelevitch', 'levinas', 'patocka', 'rovelli',
 ])
@@ -186,9 +181,9 @@ export default function MappaFilosofi() {
 
   const connessi = selezionato
     ? [
-        ...(filosofi.find(f => f.id === selezionato)?.connessioni ?? []),
-        ...filosofi.filter(f => f.connessioni.includes(selezionato)).map(f => f.id),
-      ]
+      ...(filosofi.find(f => f.id === selezionato)?.connessioni ?? []),
+      ...filosofi.filter(f => f.connessioni.includes(selezionato)).map(f => f.id),
+    ]
     : []
 
   const getStato = f => {
@@ -203,10 +198,10 @@ export default function MappaFilosofi() {
     const colori = coloriGruppo[f.gruppo] ?? { bg: '#1a1a2e', bordo: '#334155', testo: '#94a3b8' }
 
     const stili = {
-      neutro:      { opacity: 1,   borderColor: '#1e293b',         background: '#0d0d1a' },
-      selezionato: { opacity: 1,   borderColor: colori.bordo,      background: colori.bg, boxShadow: `0 0 20px ${colori.bordo}44` },
-      connesso:    { opacity: 1,   borderColor: colori.bordo + '88', background: colori.bg + '88' },
-      dimmed:      { opacity: 0.2, borderColor: '#1e293b',         background: '#0d0d1a' },
+      neutro: { opacity: 1, borderColor: '#1e293b', background: '#0d0d1a' },
+      selezionato: { opacity: 1, borderColor: colori.bordo, background: colori.bg, boxShadow: `0 0 20px ${colori.bordo}44` },
+      connesso: { opacity: 1, borderColor: colori.bordo + '88', background: colori.bg + '88' },
+      dimmed: { opacity: 0.2, borderColor: '#1e293b', background: '#0d0d1a' },
     }
 
     return (

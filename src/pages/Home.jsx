@@ -23,16 +23,16 @@ export default function Home() {
                         🏛️ Enciclopedia Filosofica
                     </Link>
                     <Link
-                        to="/quiz"
+                        to="/lessico"
                         className="px-8 py-4 bg-transparent border border-amber-500 text-amber-400 rounded-xl font-black text-base hover:bg-amber-500 hover:text-zinc-900 transition-all duration-200"
                     >
-                        🧠 Quiz — Quale filosofo sei?
+                        💡 Parole e concetti
                     </Link>
                     <Link
-                        to="/citazioni"
+                        to="/mappa"
                         className="px-8 py-4 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-black text-base hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
                     >
-                        💬 Citazioni Filosofiche
+                        🔗 Mappa delle connessioni
                     </Link>
                 </div>
 
