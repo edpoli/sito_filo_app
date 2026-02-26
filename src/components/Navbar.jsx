@@ -28,8 +28,6 @@ export default function Navbar() {
                     <Link to="/mappa" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
-                    <Link to="/gioco" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Duello</Link>
-                    <Link to="/citazioni" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
                     <Link to="/contatti" className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Contatti</Link>
                 </div>
             </div>
@@ -42,8 +40,6 @@ export default function Navbar() {
                     <Link to="/mappa" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Quiz</Link>
-                    <Link to="/gioco" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Duello</Link>
-                    <Link to="/citazioni" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Citazioni</Link>
                     <Link to="/contatti" onClick={() => setAperto(false)} className="text-stone-400 hover:text-amber-500 text-sm transition-colors">Contatti</Link>
                 </div>
             )}

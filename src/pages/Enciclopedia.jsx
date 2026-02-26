@@ -13,7 +13,7 @@ export default function Enciclopedia() {
                 </h1>
                 <div className="w-12 h-px bg-stone-700 mx-auto mb-4" />
                 <p className="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">
-                    Tredici autori, tredici visioni del mondo. Seleziona un pensatore per esplorarne vita, opere e concetti fondamentali.
+                    Ventotto autori, ventotto visioni del mondo. Seleziona un pensatore per esplorarne vita, opere e concetti fondamentali.
                 </p>
             </div>
 
