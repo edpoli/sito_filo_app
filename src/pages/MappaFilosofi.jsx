@@ -10,7 +10,7 @@ const filosofi = [
   {
     id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
     citazione: 'Tornare alle cose stesse.',
-    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka', 'costa'],
+    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka'],
   },
   {
     id: 'freud', nome: 'Freud', emoji: '🧠', gruppo: 'Psicoanalisi', anni: '1856–1939',
@@ -166,7 +166,7 @@ const HAI_SCHEDA = new Set([
   'derrida', 'foucault', 'hegel', 'heidegger', 'wittgenstein',
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
   'marx', 'nietzsche', 'byung-chul han',
-  'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero', 'costa',
+  'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
   'esposito', 'han', 'haraway', 'jankelevitch', 'levinas', 'patocka', 'rovelli',
 ])
 
