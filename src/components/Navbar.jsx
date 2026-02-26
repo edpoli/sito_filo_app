@@ -34,7 +34,7 @@ export default function Navbar() {
                 {/* Desktop: links + toggle */}
                 <div className="hidden md:flex items-center gap-6">
                     <Link to="/" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Home</Link>
-                    <Link to="/enciclopedia" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/Galleria" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Galleria</Link>
                     <Link to="/mappa" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Quiz</Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
             {aperto && (
                 <div className="md:hidden flex flex-col gap-4 mt-4 pb-2">
                     <Link to="/" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Home</Link>
-                    <Link to="/enciclopedia" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Enciclopedia</Link>
+                    <Link to="/Galleria" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Galleria</Link>
                     <Link to="/mappa" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Mappa</Link>
                     <Link to="/lessico" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Parole e Concetti</Link>
                     <Link to="/quiz" onClick={() => setAperto(false)} className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Quiz</Link>

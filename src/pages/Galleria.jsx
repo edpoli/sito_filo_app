@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { filosofi } from '../data/Filosofi'
 
-export default function Enciclopedia() {
+export default function Galleria() {
     return (
         <div className="max-w-4xl mx-auto px-6 py-12">
 
@@ -9,7 +9,7 @@ export default function Enciclopedia() {
             <div className="text-center mb-12">
                 <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">Filosofia Applicata</p>
                 <h1 className="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-3 tracking-wide">
-                    Enciclopedia <span className="text-[#d97757]">Filosofica</span>
+                    Galleria <span className="text-[#d97757]">Filosofica</span>
                 </h1>
                 <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mb-4" />
                 <p className="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">

@@ -6,7 +6,7 @@ import DettaglioFilosofo from './pages/DettaglioFilosofo';
 import Home from "./pages/Home";
 import Navbar from './components/Navbar';
 import Quiz from './pages/Quiz';
-import Enciclopedia from './pages/Enciclopedia';
+import Galleria from './pages/Galleria';
 import Contatti from './pages/Contatti';
 import Lessico from './pages/Lessico';
 import DettaglioTermine from './pages/DettaglioTermine';
@@ -23,7 +23,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/filosofo/:id" element={<DettaglioFilosofo />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/enciclopedia" element={<Enciclopedia />} />
+        <Route path="/Galleria" element={<Galleria />} />
         <Route path="/contatti" element={<Contatti />} />
         <Route path="/lessico" element={<Lessico />} />
         <Route path="/lessico/:id" element={<DettaglioTermine />} />

@@ -18,10 +18,10 @@ export default function Home() {
                 {/* Link alle tre sezioni */}
                 <div className="flex flex-col gap-3">
                     <Link
-                        to="/enciclopedia"
+                        to="/Galleria"
                         className="px-8 py-4 bg-transparent border border-[#d33f0e] text-stone-700 dark:text-stone-100 hover:text-stone-100 rounded-xl font-black text-base hover:bg-[#d33f0e] transition-all duration-200"
                     >
-                        🏛️ Enciclopedia Filosofica
+                        🏛️ Galleria Filosofica
                     </Link>
                     <Link
                         to="/lessico"

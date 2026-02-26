@@ -18,7 +18,7 @@ export default function Contatti() {
 
     const destinatario = "filosofia.applicata20@gmail.com";
     const oggetto = encodeURIComponent(
-      form.oggetto || "Messaggio dal sito Enciclopedia Filosofica"
+      form.oggetto || "Messaggio dal sito Galleria Filosofica"
     );
     const corpo = encodeURIComponent(
       `Nome: ${form.nome}\nEmail: ${form.email}\n\n${form.messaggio}`
