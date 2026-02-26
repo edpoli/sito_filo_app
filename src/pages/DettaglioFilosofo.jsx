@@ -65,7 +65,7 @@ export default function DettaglioFilosofo() {
         return (
             <div className="text-center py-20">
                 <p className="text-stone-400">Filosofo non trovato.</p>
-                <Link to="/" className="text-amber-500 underline mt-4 block">Torna alla home</Link>
+                <Link to="/" className="text-[#d97757] underline mt-4 block">Torna alla home</Link>
             </div>
         );
     }
@@ -76,7 +76,7 @@ export default function DettaglioFilosofo() {
             {/* Bottone indietro — useNavigate(-1) = torna alla pagina precedente */}
             <button
                 onClick={() => navigate(-1)}
-                className="text-stone-500 hover:text-amber-500 transition-colors mb-8 text-sm flex items-center gap-2"
+                className="text-stone-500 hover:text-[#d97757] transition-colors mb-8 text-sm flex items-center gap-2"
             >
                 ← Indietro
             </button>
@@ -84,24 +84,24 @@ export default function DettaglioFilosofo() {
             {/* Header */}
             <div className={`border-l-4 ${f.colore.split(" ")[0]} pl-5 mb-8`}>
                 <div className="text-4xl mb-3">{f.emoji}</div>
-                <h1 className="text-4xl font-black text-stone-100 mb-1">{f.nome}</h1>
+                <h1 className="text-4xl font-black text-stone-900 dark:text-stone-100 mb-1">{f.nome}</h1>
                 <p className="text-stone-500 text-sm">{f.anni} · {f.corrente}</p>
             </div>
 
             {/* Citazione */}
-            <div className="bg-stone-900 border border-stone-800 rounded-xl p-5 mb-6">
+            <div className="bg-stone-50 dark:bg-stone-800 border border-[#e7e0d8] dark:border-stone-700 rounded-xl p-5 mb-6">
                 <p className={`italic text-sm ${f.colore.split(" ")[1]}`}>"{f.citazione}"</p>
             </div>
 
             {/* Bio */}
-            <p className="text-stone-300 leading-relaxed text-sm mb-8">{f.bio}</p>
+            <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm mb-8">{f.bio}</p>
 
             {/* Opere */}
             <div className="mb-6">
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Opere principali</h2>
                 <div className="flex flex-wrap gap-2">
                     {f.opere.map((o) => (
-                        <span key={o} className="text-xs bg-stone-800 text-stone-300 px-3 py-1.5 rounded-full border border-stone-700">
+                        <span key={o} className="text-xs bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700">
                             {o}
                         </span>
                     ))}
@@ -132,8 +132,8 @@ export default function DettaglioFilosofo() {
             </div>
 
             {/* Link agli altri filosofi */}
-            <div className="mt-10 pt-8 border-t border-stone-800">
-                <p className="text-xs text-stone-600 uppercase tracking-widest mb-4">Altri filosofi</p>
+            <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800">
+                <p className="text-xs text-stone-400 uppercase tracking-widest mb-4">Altri filosofi</p>
                 <div className="flex flex-wrap gap-2">
                     {filosofi
                         .filter((fil) => fil.id !== id)
@@ -141,7 +141,7 @@ export default function DettaglioFilosofo() {
                             <Link
                                 key={fil.id}
                                 to={`/filosofo/${fil.id}`}
-                                className="text-sm text-stone-400 hover:text-amber-500 transition-colors"
+                                className="text-sm text-stone-500 hover:text-[#d97757] transition-colors"
                             >
                                 {fil.nome} →
                             </Link>

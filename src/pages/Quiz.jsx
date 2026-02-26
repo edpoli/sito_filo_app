@@ -8,8 +8,6 @@ const punteggiIniziali = {
 };
 
 // ─── DOMANDE ─────────────────────────────────────────────────────────────────
-// Distribuzione: 13 filosofi su 40 slot (10 domande × 4 risposte)
-// 12 filosofi appaiono 3 volte, foucault appare 4 volte (slot extra)
 
 const domande = [
   {
@@ -122,11 +120,11 @@ function Risposta({ testo, onClick, selezionata }) {
       onClick={onClick}
       className={`w-full text-left px-5 py-4 mb-3 rounded-xl border transition-all duration-200 font-serif text-base cursor-pointer
         ${selezionata
-          ? "border-yellow-500 bg-yellow-500/10 text-stone-100"
-          : "border-stone-700 bg-transparent text-stone-300 hover:border-stone-500 hover:bg-stone-800/30"
+          ? "border-[#d97757] bg-[#d97757]/10 text-stone-900 dark:text-stone-100"
+          : "border-stone-300 dark:border-stone-700 bg-transparent text-stone-700 dark:text-stone-300 hover:border-stone-400 hover:bg-stone-50 dark:hover:border-stone-600 dark:hover:bg-stone-800"
         }`}
     >
-      <span className={`mr-3 ${selezionata ? "text-yellow-400" : "text-stone-600"}`}>
+      <span className={`mr-3 ${selezionata ? "text-[#d97757]" : "text-stone-400"}`}>
         {selezionata ? "▶" : "○"}
       </span>
       {testo}
@@ -163,11 +161,11 @@ function Risultato({ vincitoreId, onRicomincia }) {
       {/* Emoji + nome */}
       <div className="text-7xl mb-3 leading-none">{f.emoji}</div>
       <p className="text-stone-400 text-xs tracking-widest uppercase mb-1">Sei...</p>
-      <h2 className="text-3xl font-black text-stone-100 leading-tight mb-1">{f.nome}</h2>
+      <h2 className="text-3xl font-black text-stone-900 dark:text-stone-100 leading-tight mb-1">{f.nome}</h2>
       <p className="text-stone-500 text-sm mb-8">{f.anni}</p>
 
-      {/* Card statistiche stile gioco da tavolo */}
-      <div className={`border ${f.bordo} rounded-2xl p-6 mb-6 text-left bg-black/20`}>
+      {/* Card statistiche */}
+      <div className={`border ${f.bordo} rounded-2xl p-6 mb-6 text-left bg-stone-50 dark:bg-stone-800`}>
         <p className={`text-xs tracking-widest uppercase mb-5 font-bold ${f.colore}`}>
           Statistiche
         </p>
@@ -181,7 +179,7 @@ function Risultato({ vincitoreId, onRicomincia }) {
               </span>
             </div>
             {tipo === "bar" && (
-              <div className="h-1.5 bg-stone-800 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
                 <div
                   className={`h-full ${f.bg} rounded-full transition-all duration-1000 ease-out`}
                   style={{ width: animato ? `${f.stats[key]}%` : "0%" }}
@@ -189,7 +187,7 @@ function Risultato({ vincitoreId, onRicomincia }) {
               </div>
             )}
             {tipo === "numero" && (
-              <div className="h-1.5 bg-stone-800 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
                 <div
                   className={`h-full ${f.bg} opacity-60 rounded-full transition-all duration-1000 ease-out`}
                   style={{ width: animato ? `${Math.min(f.stats[key] * 2, 100)}%` : "0%" }}
@@ -201,9 +199,9 @@ function Risultato({ vincitoreId, onRicomincia }) {
       </div>
 
       {/* Descrizione personalizzata */}
-      <div className={`border-l-4 ${f.bordo} bg-stone-900/60 rounded-r-xl p-5 mb-8 text-left`}>
+      <div className={`border-l-4 ${f.bordo} bg-stone-50 dark:bg-stone-800 rounded-r-xl p-5 mb-8 text-left`}>
         <p className={`italic text-sm mb-3 ${f.colore}`}>"{f.idea}"</p>
-        <p className="text-stone-300 leading-relaxed text-sm">{f.desc}</p>
+        <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm">{f.desc}</p>
       </div>
 
       {/* Azioni */}
@@ -216,7 +214,7 @@ function Risultato({ vincitoreId, onRicomincia }) {
         </Link>
         <button
           onClick={onRicomincia}
-          className="flex-1 py-3 px-5 bg-transparent border border-stone-600 text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-200 transition-all duration-200"
+          className="flex-1 py-3 px-5 bg-transparent border border-stone-300 dark:border-stone-700 text-stone-500 dark:text-stone-400 rounded-xl font-semibold font-serif text-sm hover:border-stone-400 hover:text-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
         >
           Ricomincia
         </button>
@@ -238,7 +236,6 @@ export default function Quiz() {
   const rispostaCorrente = risposte[indiceDomanda];
 
   const seleziona = (filosofo, indiceRisposta) => {
-    // Se c'era già una risposta per questa domanda, sottrai il punto al filosofo precedente
     const nuoviPunteggi = { ...punteggi };
     if (rispostaCorrente !== undefined) {
       const vecchioFilosofo = domande[indiceDomanda].risposte[rispostaCorrente].filosofo;
@@ -273,32 +270,31 @@ export default function Quiz() {
     setSchermata("intro");
   };
 
-  // Calcola vincitore solo quando il quiz è finito
   const vincitoreId = finito
     ? Object.entries(punteggi).sort((a, b) => b[1] - a[1])[0][0]
     : null;
 
   return (
-    <div className="min-h-screen bg-green-950 text-stone-100 flex items-center justify-center p-6 font-serif">
+    <div className="min-h-screen flex items-center justify-center p-6 font-serif text-stone-900 dark:text-stone-100">
       <div className="w-full max-w-lg">
 
         {/* ── SCHERMATA INTRO ── */}
         {schermata === "intro" && (
           <div className="text-center">
-            <p className="text-yellow-200 text-xs tracking-widest uppercase mb-3">
+            <p className="text-[#d97757] text-xs tracking-widest uppercase mb-3">
               Quiz filosofico
             </p>
-            <h1 className="text-5xl text-[#f5efbb] font-black mb-2">Filosofia</h1>
-            <h2 className="text-5xl font-black text-orange-700 mb-6">Applicata</h2>
-            <p className="text-stone-400 mb-3 text-sm max-w-xs mx-auto">
+            <h1 className="text-5xl text-stone-900 dark:text-stone-100 font-black mb-2">Filosofia</h1>
+            <h2 className="text-5xl font-black text-[#d97757] mb-6">Applicata</h2>
+            <p className="text-stone-500 mb-3 text-sm max-w-xs mx-auto">
               10 domande per scoprire a quale dei 13 grandi pensatori ti avvicini di più.
             </p>
-            <p className="text-stone-600 text-xs mb-10">
+            <p className="text-stone-400 text-xs mb-10">
               Nessuna risposta giusta. Solo scelte rivelatrici.
             </p>
             <button
               onClick={() => setSchermata("quiz")}
-              className="px-10 py-4 bg-yellow-500 text-zinc-900 rounded-xl font-black text-base hover:bg-yellow-400 transition-all duration-200 font-serif"
+              className="px-10 py-4 bg-[#d97757] text-white rounded-xl font-black text-base hover:bg-[#c86843] transition-all duration-200 font-serif"
             >
               Inizia →
             </button>
@@ -310,10 +306,10 @@ export default function Quiz() {
           <>
             {/* Header */}
             <div className="text-center mb-8">
-              <p className="text-yellow-200 text-xs tracking-widest uppercase mb-1">
+              <p className="text-[#d97757] text-xs tracking-widest uppercase mb-1">
                 Quiz filosofico
               </p>
-              <h1 className="text-2xl font-black text-stone-100">Quale filosofo sei?</h1>
+              <h1 className="text-2xl font-black text-stone-900 dark:text-stone-100">Quale filosofo sei?</h1>
             </div>
 
             {finito ? (
@@ -330,20 +326,20 @@ export default function Quiz() {
                     <span className="text-xs text-stone-400">
                       Domanda {indiceDomanda + 1} di {domande.length}
                     </span>
-                    <span className="text-xs text-amber-400">
+                    <span className="text-xs text-[#d97757]">
                       {Math.round((indiceDomanda / domande.length) * 100)}%
                     </span>
                   </div>
-                  <div className="h-1 bg-stone-800 rounded-full">
+                  <div className="h-1 bg-stone-200 dark:bg-stone-700 rounded-full">
                     <div
-                      className="h-full bg-yellow-500 rounded-full transition-all duration-500"
+                      className="h-full bg-[#d97757] rounded-full transition-all duration-500"
                       style={{ width: `${(indiceDomanda / domande.length) * 100}%` }}
                     />
                   </div>
                 </div>
 
                 {/* Domanda */}
-                <h2 className="text-stone-100 text-xl font-bold mb-6 leading-snug">
+                <h2 className="text-stone-900 dark:text-stone-100 text-xl font-bold mb-6 leading-snug">
                   {domanda.testo}
                 </h2>
 
@@ -361,7 +357,7 @@ export default function Quiz() {
                 <div className="flex gap-3 mt-2">
                   <button
                     onClick={indietro}
-                    className="py-4 w-full px-6 rounded-xl border border-stone-700 text-stone-400 font-bold font-serif hover:border-stone-500 hover:text-stone-200 transition-all duration-200"
+                    className="py-4 w-full px-6 rounded-xl border border-stone-300 dark:border-stone-700 text-stone-500 dark:text-stone-400 font-bold font-serif hover:border-stone-400 hover:text-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
                   >
                     ← Indietro
                   </button>
@@ -370,8 +366,8 @@ export default function Quiz() {
                     disabled={rispostaCorrente === undefined}
                     className={`w-full py-4 rounded-xl font-bold text-base transition-all duration-200 font-serif
                       ${rispostaCorrente !== undefined
-                        ? "bg-orange-800 text-stone-200 cursor-pointer hover:bg-orange-700"
-                        : "bg-transparent border border-stone-700 text-stone-600 cursor-not-allowed"
+                        ? "bg-[#d97757] text-white cursor-pointer hover:bg-[#c86843]"
+                        : "bg-transparent border border-stone-200 dark:border-stone-700 text-stone-300 dark:text-stone-600 cursor-not-allowed"
                       }`}
                   >
                     {indiceDomanda < domande.length - 1 ? "Avanti →" : "Scopri il risultato →"}

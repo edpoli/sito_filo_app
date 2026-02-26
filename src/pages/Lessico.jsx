@@ -17,10 +17,10 @@ export default function Lessico() {
             {/* Header */}
             <div className="text-center mb-10">
                 <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">Filosofia Applicata</p>
-                <h1 className="text-3xl font-bold text-stone-100 mb-3 tracking-wide">
-                    <span className="text-amber-500"> Parole </span>  <span >e </span> <span className="text-amber-500">Concetti</span>
+                <h1 className="text-3xl font-bold text-stone-900 mb-3 tracking-wide">
+                    <span className="text-[#d97757]"> Parole </span>  <span className='text-stone-900 dark:text-stone-100' > e </span> <span className="text-[#d97757]">Concetti</span>
                 </h1>
-                <div className="w-12 h-px bg-stone-700 mx-auto mb-4" />
+                <div className="w-12 h-px bg-stone-300 mx-auto mb-4" />
                 <p className="text-stone-500 text-sm max-w-sm mx-auto leading-relaxed">
                     I concetti fondamentali. Seleziona un termine per esplorarne definizione, uso e storia.
                 </p>
@@ -33,8 +33,8 @@ export default function Lessico() {
                         key={cat}
                         onClick={() => setFiltro(cat)}
                         className={`text-xs px-3 py-1.5 rounded border transition-colors cursor-pointer ${filtro === cat
-                            ? "border-amber-500 text-amber-500 bg-amber-500/10"
-                            : "border-stone-700 text-stone-500 hover:border-stone-500 hover:text-stone-300"
+                            ? "border-[#d97757] text-[#d97757] bg-[#d97757]/10"
+                            : "border-stone-300 text-stone-500 hover:border-stone-400 hover:text-stone-700"
                             }`}
                     >
                         {cat}
@@ -48,10 +48,10 @@ export default function Lessico() {
                     <Link
                         key={t.id}
                         to={`/lessico/${t.id}`}
-                        className={`group flex flex-col p-5 bg-stone-900 border ${t.colore.split(" ")[0]} rounded-lg hover:bg-stone-800/70 transition-all duration-200`}
+                        className={`group flex flex-col p-5 bg-white dark:bg-stone-900 shadow-sm border ${t.colore.split(" ")[0]} rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800 transition-all duration-200 scale-90 hover:scale-100`}
                     >
                         {/* Nome termine */}
-                        <div className={`font-semibold text-sm text-stone-100 group-hover:${t.colore.split(" ")[1]} transition-colors mb-3`}>
+                        <div className={`font-semibold text-sm text-stone-900 dark:text-stone-200  group-hover:${t.colore.split(" ")[1]} transition-colors mb-3`}>
                             {t.termine}
                         </div>
 
@@ -68,7 +68,7 @@ export default function Lessico() {
                         {/* Autori */}
                         <div className="flex flex-wrap gap-1 mt-3">
                             {t.autori.map((a) => (
-                                <span key={a} className="text-xs bg-stone-800 text-stone-500 px-2 py-0.5 rounded border border-stone-700">
+                                <span key={a} className="text-xs bg-stone-100 dark:bg-black text-stone-500 dark:text-stone-500 px-2 py-0.5 rounded border border-stone-200">
                                     {a.charAt(0).toUpperCase() + a.slice(1)}
                                 </span>
                             ))}

@@ -29,32 +29,32 @@ export default function Contatti() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100 px-4 py-16">
+    <div className="min-h-screen text-stone-900 dark:text-stone-100 px-4 py-16">
       <div className="max-w-2xl mx-auto">
 
         {/* Intestazione */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-amber-400 mb-3 tracking-wide">
+          <h1 className="text-4xl font-bold text-[#d97757] mb-3 tracking-wide">
             Contatti
           </h1>
           <p className="text-stone-400 text-lg leading-relaxed">
             Hai domande, suggerimenti o vuoi collaborare? Scrivici.
           </p>
-          <div className="mt-4 w-16 h-px bg-amber-500 mx-auto" />
+          <div className="mt-4 w-16 h-px bg-[#d97757] mx-auto" />
         </div>
 
         {/* Card form */}
-        <div className="bg-stone-900 border border-stone-800 rounded-2xl p-8 shadow-lg">
+        <div className="bg-white dark:bg-stone-900 border border-[#e7e0d8] dark:border-stone-800 rounded-2xl p-8 shadow-lg">
 
           {inviato ? (
             <div className="text-center py-10">
-              <p className="text-2xl text-amber-400 font-semibold mb-2">Grazie!</p>
+              <p className="text-2xl text-[#d97757] font-semibold mb-2">Grazie!</p>
               <p className="text-stone-400">
                 Il tuo client di posta si è aperto con il messaggio precompilato.
               </p>
               <button
                 onClick={() => { setInviato(false); setForm({ nome: "", email: "", oggetto: "", messaggio: "" }); }}
-                className="mt-6 text-sm text-amber-500 underline hover:text-amber-300 transition-colors"
+                className="mt-6 text-sm text-[#d97757] underline hover:text-[#c86843] transition-colors"
               >
                 Invia un altro messaggio
               </button>
@@ -76,7 +76,7 @@ export default function Contatti() {
                     value={form.nome}
                     onChange={handleChange}
                     placeholder="Il tuo nome"
-                    className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-3 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-[#d97757] transition-colors"
                   />
                 </div>
 
@@ -93,7 +93,7 @@ export default function Contatti() {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="La tua email"
-                    className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-500 transition-colors"
+                    className="bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-3 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-[#d97757] transition-colors"
                   />
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function Contatti() {
                   value={form.oggetto}
                   onChange={handleChange}
                   placeholder="Oggetto del messaggio"
-                  className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-500 transition-colors"
+                  className="bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-3 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-[#d97757] transition-colors"
                 />
               </div>
 
@@ -127,14 +127,14 @@ export default function Contatti() {
                   value={form.messaggio}
                   onChange={handleChange}
                   placeholder="Scrivi qui il tuo messaggio..."
-                  className="bg-stone-800 border border-stone-700 rounded-lg px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-amber-500 transition-colors resize-none"
+                  className="bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg px-4 py-3 text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 focus:outline-none focus:border-[#d97757] transition-colors resize-none"
                 />
               </div>
 
               {/* Pulsante invio */}
               <button
                 type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold py-3 rounded-lg transition-colors tracking-wide"
+                className="w-full bg-[#d97757] hover:bg-[#c86843] text-white font-semibold py-3 rounded-lg transition-colors tracking-wide"
               >
                 Invia messaggio
               </button>
@@ -147,7 +147,7 @@ export default function Contatti() {
           Oppure scrivici direttamente a{" "}
           <a
             href="mailto:filosofia.applicata20@gmail.com"
-            className="text-amber-500 hover:text-amber-300 transition-colors underline"
+            className="text-[#d97757] hover:text-[#c86843] transition-colors underline"
           >
             filosofia.applicata20@gmail.com
           </a>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDarkMode } from '../context/DarkMode'
 
 const filosofi = [
   {
@@ -110,7 +111,7 @@ const filosofi = [
   {
     id: 'han', nome: 'Byung-Chul Han', emoji: '📱', gruppo: 'Filosofia della tecnologia', anni: '1959–',
     citazione: 'La società della trasparenza è una società della sfiducia.',
-    connessioni: ['foucault, arendt, heidegger'],
+    connessioni: ['agamben', 'arendt', 'foucault', 'heidegger'],
   },
   {
     id: 'haraway', nome: 'Haraway', emoji: '🤖', gruppo: 'Studi femministi della scienza', anni: '1944–',
@@ -139,33 +140,33 @@ const filosofi = [
   },
 ]
 
+// coloriGruppo: bordo = colore vivido, bg = sfondo pastello chiaro, testo = testo scuro su sfondo chiaro
 const coloriGruppo = {
-  'Idealismo': { bg: '#1e3a5f', bordo: '#60a5fa', testo: '#93c5fd' },
-  'Fenomenologia': { bg: '#14432a', bordo: '#34d399', testo: '#6ee7b7' },
-  'Psicoanalisi': { bg: '#2d1b69', bordo: '#a78bfa', testo: '#c4b5fd' },
-  'Materialismo': { bg: '#7f1d1d', bordo: '#f87171', testo: '#fca5a5' },
-  'Esistenzialismo': { bg: '#431407', bordo: '#fb923c', testo: '#fdba74' },
-  'Filosofia del Linguaggio': { bg: '#164e63', bordo: '#22d3ee', testo: '#67e8f9' },
-  'Filosofia Politica': { bg: '#312e81', bordo: '#818cf8', testo: '#a5b4fc' },
-  'Post-strutturalismo': { bg: '#500724', bordo: '#f472b6', testo: '#f9a8d4' },
-  'Decostruzionismo': { bg: '#4c0519', bordo: '#fb7185', testo: '#fda4af' },
-  'Mistica': { bg: '#451a03', bordo: '#fbbf24', testo: '#fcd34d' },
-  'Filosofia Contemporanea': { bg: '#14532d', bordo: '#86efac', testo: '#bbf7d0' },
-  'Biopolitica': { bg: '#2d0505', bordo: '#ef4444', testo: '#fca5a5' },
-  'Ermeneutica': { bg: '#2d1a00', bordo: '#d97706', testo: '#fcd34d' },
-  'Teoria queer': { bg: '#500636', bordo: '#f472b6', testo: '#f9a8d4' },
-  'Filosofia femminista': { bg: '#0c2626', bordo: '#2dd4bf', testo: '#5eead4' },
-  'Filosofia della tecnologia': { bg: '#1a1a24', bordo: '#64748b', testo: '#94a3b8' },
-  'Studi femministi della scienza': { bg: '#0a1f12', bordo: '#16a34a', testo: '#4ade80' },
-  'Filosofia morale': { bg: '#261a00', bordo: '#fcd34d', testo: '#fde68a' },
-  'Filosofia della fisica': { bg: '#0a1520', bordo: '#7dd3fc', testo: '#bae6fd' },
+  'Idealismo':                      { bg: '#eff6ff', bordo: '#3b82f6', testo: '#1d4ed8' },
+  'Fenomenologia':                  { bg: '#f0fdf4', bordo: '#22c55e', testo: '#15803d' },
+  'Psicoanalisi':                   { bg: '#faf5ff', bordo: '#a855f7', testo: '#7e22ce' },
+  'Materialismo':                   { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
+  'Esistenzialismo':                { bg: '#fff7ed', bordo: '#f97316', testo: '#c2410c' },
+  'Filosofia del Linguaggio':       { bg: '#ecfeff', bordo: '#06b6d4', testo: '#0e7490' },
+  'Filosofia Politica':             { bg: '#eef2ff', bordo: '#6366f1', testo: '#4338ca' },
+  'Post-strutturalismo':            { bg: '#fdf2f8', bordo: '#ec4899', testo: '#be185d' },
+  'Decostruzionismo':               { bg: '#fff1f2', bordo: '#f43f5e', testo: '#be123c' },
+  'Mistica':                        { bg: '#fffbeb', bordo: '#f59e0b', testo: '#b45309' },
+  'Filosofia Contemporanea':        { bg: '#f0fdf4', bordo: '#4ade80', testo: '#166534' },
+  'Biopolitica':                    { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
+  'Ermeneutica':                    { bg: '#fffbeb', bordo: '#d97706', testo: '#92400e' },
+  'Teoria queer':                   { bg: '#fdf2f8', bordo: '#f472b6', testo: '#be185d' },
+  'Filosofia femminista':           { bg: '#f0fdfa', bordo: '#2dd4bf', testo: '#0f766e' },
+  'Filosofia della tecnologia':     { bg: '#f8fafc', bordo: '#64748b', testo: '#334155' },
+  'Studi femministi della scienza': { bg: '#f0fdf4', bordo: '#16a34a', testo: '#14532d' },
+  'Filosofia morale':               { bg: '#fefce8', bordo: '#eab308', testo: '#713f12' },
+  'Filosofia della fisica':         { bg: '#f0f9ff', bordo: '#38bdf8', testo: '#0c4a6e' },
 }
 
-// ID dei filosofi con scheda nell'enciclopedia
 const HAI_SCHEDA = new Set([
   'derrida', 'foucault', 'hegel', 'heidegger', 'wittgenstein',
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
-  'marx', 'nietzsche', 'byung-chul han',
+  'marx', 'nietzsche',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
   'esposito', 'han', 'haraway', 'jankelevitch', 'levinas', 'patocka', 'rovelli',
 ])
@@ -174,6 +175,7 @@ const gruppi = [...new Set(filosofi.map(f => f.gruppo))]
 
 export default function MappaFilosofi() {
   const navigate = useNavigate()
+  const { dark } = useDarkMode()
   const [selezionato, setSelezionato] = useState(null)
   const [vistaAttiva, setVistaAttiva] = useState('griglia')
 
@@ -195,36 +197,38 @@ export default function MappaFilosofi() {
 
   function CardFilosofo({ f }) {
     const stato = getStato(f)
-    const colori = coloriGruppo[f.gruppo] ?? { bg: '#1a1a2e', bordo: '#334155', testo: '#94a3b8' }
+    const colori = coloriGruppo[f.gruppo] ?? { bg: '#f8fafc', bordo: '#cbd5e1', testo: '#64748b' }
 
-    const stili = {
-      neutro: { opacity: 1, borderColor: '#1e293b', background: '#0d0d1a' },
-      selezionato: { opacity: 1, borderColor: colori.bordo, background: colori.bg, boxShadow: `0 0 20px ${colori.bordo}44` },
-      connesso: { opacity: 1, borderColor: colori.bordo + '88', background: colori.bg + '88' },
-      dimmed: { opacity: 0.2, borderColor: '#1e293b', background: '#0d0d1a' },
-    }
+    // Solo i colori dinamici restano inline
+    const stiliDinamici = stato === 'selezionato'
+      ? { borderColor: colori.bordo, background: dark ? colori.bordo + '22' : colori.bg, boxShadow: `0 0 16px ${colori.bordo}44` }
+      : stato === 'connesso'
+        ? { borderColor: colori.bordo + '99', background: dark ? colori.bordo + '15' : colori.bg }
+        : {}
 
     return (
       <div
         onClick={() => setSelezionato(selezionato === f.id ? null : f.id)}
-        style={{
-          border: '1px solid',
-          borderRadius: 12,
-          padding: '14px',
-          cursor: 'pointer',
-          transition: 'all 0.25s',
-          ...stili[stato],
-        }}
+        className={`scale-90 hover:scale-100 rounded-xl p-3.5 cursor-pointer transition-all duration-[250ms] border
+          ${stato === 'dimmed' ? 'opacity-25' : ''}
+          ${stato === 'neutro' || stato === 'dimmed'
+            ? 'border-[#e7e0d8] dark:border-stone-800 bg-white dark:bg-stone-900'
+            : 'border-transparent'
+          }`}
+        style={stiliDinamici}
       >
-        <div style={{ fontSize: 28, marginBottom: 6 }}>{f.emoji}</div>
-        <div style={{ fontWeight: 700, fontSize: 13, color: stato === 'dimmed' ? '#475569' : '#f0e6d3', marginBottom: 2 }}>
+        <div className="text-[28px] mb-1.5">{f.emoji}</div>
+        <div className={`font-bold text-[13px] mb-0.5 ${stato === 'dimmed' ? 'text-stone-400 dark:text-stone-600' : 'text-stone-900 dark:text-stone-100'}`}>
           {f.nome}
         </div>
-        <div style={{ fontSize: 10, color: '#475569', marginBottom: 8 }}>{f.anni}</div>
+        <div className="text-[10px] text-stone-500 mb-2">{f.anni}</div>
+        {/* Badge gruppo — colori sempre dinamici */}
         <div style={{
           display: 'inline-block', fontSize: 9, padding: '2px 8px',
           borderRadius: 99, border: `1px solid ${colori.bordo}66`,
-          color: colori.testo, background: colori.bg, letterSpacing: 0.5,
+          color: dark ? colori.bordo : colori.testo,
+          background: dark ? colori.bordo + '18' : colori.bg,
+          letterSpacing: 0.5,
         }}>
           {f.gruppo}
         </div>
@@ -233,32 +237,27 @@ export default function MappaFilosofi() {
   }
 
   return (
-    <div style={{ fontFamily: 'Georgia, serif', background: '#0a0a0f', minHeight: 'calc(100vh - 57px)', color: '#e2e8f0' }}>
+    <div className="font-serif bg-[#faf8f4] dark:bg-stone-950 text-stone-900 dark:text-stone-100 min-h-[calc(100vh-57px)] transition-colors duration-300">
 
-      {/* Intestazione pagina */}
-      <div style={{ borderBottom: '1px solid #1e293b', padding: '1rem 1.5rem' }}>
-        <p style={{ fontSize: 10, letterSpacing: 3, color: '#c9a84c', textTransform: 'uppercase', margin: '0 0 2px' }}>
+      {/* Intestazione */}
+      <div className="border-b border-[#e7e0d8] dark:border-stone-800 px-6 py-4">
+        <p className="text-[10px] tracking-[3px] text-[#d97757] uppercase mb-0.5">
           Filosofia Applicata
         </p>
-        <h1 style={{ fontSize: 20, fontWeight: 900, margin: 0, color: '#f0e6d3' }}>
-          Mappa delle Connessioni
-        </h1>
+        <h1 className="text-xl font-black">Mappa delle Connessioni</h1>
       </div>
 
       {/* Tab vista */}
-      <div style={{ display: 'flex', gap: 8, padding: '1rem 1.5rem', borderBottom: '1px solid #1e293b' }}>
+      <div className="flex gap-2 px-6 py-4 border-b border-[#e7e0d8] dark:border-stone-800">
         {['griglia', 'correnti'].map(v => (
           <button
             key={v}
             onClick={() => setVistaAttiva(v)}
-            style={{
-              padding: '6px 16px', borderRadius: 99, fontSize: 12, cursor: 'pointer',
-              fontFamily: 'Georgia, serif', border: '1px solid',
-              borderColor: vistaAttiva === v ? '#c9a84c' : '#1e293b',
-              background: vistaAttiva === v ? '#c9a84c22' : 'transparent',
-              color: vistaAttiva === v ? '#c9a84c' : '#475569',
-              transition: 'all 0.2s',
-            }}
+            className={`px-4 py-1.5 rounded-full text-xs cursor-pointer font-serif border transition-all duration-200
+              ${vistaAttiva === v
+                ? 'border-[#d97757] bg-[#d97757]/10 text-[#d97757]'
+                : 'border-[#e7e0d8] dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:border-stone-300 dark:hover:border-stone-600'
+              }`}
           >
             {v === 'griglia' ? '📋 Tutti i filosofi' : '🗂️ Per corrente'}
           </button>
@@ -266,43 +265,39 @@ export default function MappaFilosofi() {
         {selezionato && (
           <button
             onClick={() => setSelezionato(null)}
-            style={{
-              marginLeft: 'auto', padding: '6px 16px', borderRadius: 99, fontSize: 12,
-              cursor: 'pointer', fontFamily: 'Georgia, serif',
-              border: '1px solid #334155', background: 'transparent', color: '#64748b',
-            }}
+            className="ml-auto px-4 py-1.5 rounded-full text-xs cursor-pointer font-serif border border-[#e7e0d8] dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors"
           >
             ✕ Deseleziona
           </button>
         )}
       </div>
 
-      <div style={{ display: 'flex', minHeight: 'calc(100vh - 57px - 120px)' }}>
+      <div className="flex min-h-[calc(100vh-57px-120px)]">
 
         {/* Contenuto principale */}
-        <div style={{ flex: 1, padding: '1.5rem', overflowY: 'auto' }}>
+        <div className="flex-1 p-6 overflow-y-auto">
 
           {vistaAttiva === 'griglia' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12 }}>
+            <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))' }}>
               {filosofi.map(f => <CardFilosofo key={f.id} f={f} />)}
             </div>
           )}
 
           {vistaAttiva === 'correnti' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <div className="flex flex-col gap-6">
               {gruppi.map(gruppo => {
                 const filoGruppo = filosofi.filter(f => f.gruppo === gruppo)
-                const colori = coloriGruppo[gruppo] ?? { bordo: '#334155', testo: '#94a3b8', bg: '#1a1a2e' }
+                const colori = coloriGruppo[gruppo] ?? { bordo: '#e7e0d8', testo: '#78716c' }
                 return (
                   <div key={gruppo}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                      <div style={{ height: 1, flex: 1, background: colori.bordo + '44' }} />
-                      <span style={{ fontSize: 11, color: colori.testo, letterSpacing: 2, textTransform: 'uppercase' }}>
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div style={{ height: 1, flex: 1, background: colori.bordo + '66' }} />
+                      <span style={{ fontSize: 11, color: dark ? colori.bordo : colori.testo, letterSpacing: 2, textTransform: 'uppercase' }}>
                         {gruppo}
                       </span>
-                      <div style={{ height: 1, flex: 1, background: colori.bordo + '44' }} />
+                      <div style={{ height: 1, flex: 1, background: colori.bordo + '66' }} />
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12 }}>
+                    <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))' }}>
                       {filoGruppo.map(f => <CardFilosofo key={f.id} f={f} />)}
                     </div>
                   </div>
@@ -312,29 +307,20 @@ export default function MappaFilosofi() {
           )}
         </div>
 
-        {/* Pannello connessioni */}
+        {/* Pannello connessioni laterale */}
         {filosofoSelezionato && (
-          <div style={{
-            width: 260, borderLeft: '1px solid #1e293b',
-            background: '#0d0d1a', padding: '1.5rem', overflowY: 'auto',
-          }}>
-            <div style={{ textAlign: 'center', marginBottom: 20 }}>
-              <div style={{ fontSize: 44, marginBottom: 8 }}>{filosofoSelezionato.emoji}</div>
-              <h2 style={{ fontSize: 16, fontWeight: 900, color: '#f0e6d3', margin: '0 0 4px' }}>
-                {filosofoSelezionato.nome}
-              </h2>
-              <p style={{ fontSize: 11, color: '#475569', margin: '0 0 12px' }}>{filosofoSelezionato.anni}</p>
-              <p style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.6 }}>
+          <div className="w-[260px] border-l border-[#e7e0d8] dark:border-stone-800 bg-[#faf8f4] dark:bg-stone-950 p-6 overflow-y-auto">
+            <div className="text-center mb-5">
+              <div className="text-[44px] mb-2">{filosofoSelezionato.emoji}</div>
+              <h2 className="text-base font-black mb-1">{filosofoSelezionato.nome}</h2>
+              <p className="text-[11px] text-stone-500 mb-3">{filosofoSelezionato.anni}</p>
+              <p className="text-[11px] text-stone-600 dark:text-stone-400 italic leading-relaxed">
                 "{filosofoSelezionato.citazione}"
               </p>
               {HAI_SCHEDA.has(filosofoSelezionato.id) && (
                 <button
                   onClick={() => navigate(`/filosofo/${filosofoSelezionato.id}`)}
-                  style={{
-                    marginTop: 12, padding: '6px 16px', borderRadius: 99, fontSize: 11,
-                    cursor: 'pointer', fontFamily: 'Georgia, serif',
-                    border: '1px solid #c9a84c44', background: '#c9a84c11', color: '#c9a84c',
-                  }}
+                  className="mt-3 px-4 py-1.5 rounded-full text-[11px] cursor-pointer font-serif border border-[#d97757]/30 bg-[#d97757]/10 text-[#d97757] hover:bg-[#d97757]/20 transition-colors"
                 >
                   Vai alla scheda →
                 </button>
@@ -343,29 +329,24 @@ export default function MappaFilosofi() {
 
             {/* Ha influenzato */}
             {filosofoSelezionato.connessioni.length > 0 && (
-              <div style={{ marginBottom: 20 }}>
-                <div style={{ fontSize: 9, color: '#475569', letterSpacing: 2, textTransform: 'uppercase', marginBottom: 10 }}>
+              <div className="mb-5">
+                <div className="text-[9px] text-stone-400 tracking-[2px] uppercase mb-2.5">
                   Ha influenzato
                 </div>
                 {filosofoSelezionato.connessioni.map(id => {
                   const c = filosofi.find(f => f.id === id)
-                  const colori = coloriGruppo[c?.gruppo] ?? { bordo: '#334155' }
+                  const colori = coloriGruppo[c?.gruppo] ?? { bordo: '#e7e0d8' }
                   return c ? (
                     <div
                       key={id}
                       onClick={() => setSelezionato(id)}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: 8,
-                        padding: '8px 10px', borderRadius: 8, cursor: 'pointer',
-                        marginBottom: 6, background: '#1a1a2e',
-                        border: `1px solid ${colori.bordo}44`,
-                        transition: 'border-color 0.2s',
-                      }}
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                      style={{ border: `1px solid ${colori.bordo}44` }}
                     >
-                      <span style={{ fontSize: 18 }}>{c.emoji}</span>
+                      <span className="text-[18px]">{c.emoji}</span>
                       <div>
-                        <div style={{ fontSize: 12, color: '#c8b89a', fontWeight: 600 }}>{c.nome}</div>
-                        <div style={{ fontSize: 10, color: '#475569' }}>{c.gruppo}</div>
+                        <div className="text-xs font-semibold text-stone-900 dark:text-stone-100">{c.nome}</div>
+                        <div className="text-[10px] text-stone-500">{c.gruppo}</div>
                       </div>
                     </div>
                   ) : null
@@ -376,26 +357,22 @@ export default function MappaFilosofi() {
             {/* Influenzato da */}
             {filosofi.filter(f => f.connessioni.includes(filosofoSelezionato.id)).length > 0 && (
               <div>
-                <div style={{ fontSize: 9, color: '#475569', letterSpacing: 2, textTransform: 'uppercase', marginBottom: 10 }}>
+                <div className="text-[9px] text-stone-400 tracking-[2px] uppercase mb-2.5">
                   Influenzato da
                 </div>
                 {filosofi.filter(f => f.connessioni.includes(filosofoSelezionato.id)).map(f => {
-                  const colori = coloriGruppo[f.gruppo] ?? { bordo: '#334155' }
+                  const colori = coloriGruppo[f.gruppo] ?? { bordo: '#e7e0d8' }
                   return (
                     <div
                       key={f.id}
                       onClick={() => setSelezionato(f.id)}
-                      style={{
-                        display: 'flex', alignItems: 'center', gap: 8,
-                        padding: '8px 10px', borderRadius: 8, cursor: 'pointer',
-                        marginBottom: 6, background: '#1a1a2e',
-                        border: `1px solid ${colori.bordo}44`,
-                      }}
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                      style={{ border: `1px solid ${colori.bordo}44` }}
                     >
-                      <span style={{ fontSize: 18 }}>{f.emoji}</span>
+                      <span className="text-[18px]">{f.emoji}</span>
                       <div>
-                        <div style={{ fontSize: 12, color: '#c8b89a', fontWeight: 600 }}>{f.nome}</div>
-                        <div style={{ fontSize: 10, color: '#475569' }}>{f.gruppo}</div>
+                        <div className="text-xs font-semibold text-stone-900 dark:text-stone-100">{f.nome}</div>
+                        <div className="text-[10px] text-stone-500">{f.gruppo}</div>
                       </div>
                     </div>
                   )

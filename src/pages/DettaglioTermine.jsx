@@ -12,7 +12,7 @@ export default function DettaglioTermine() {
         return (
             <div className="text-center py-20">
                 <p className="text-stone-400">Termine non trovato.</p>
-                <Link to="/lessico" className="text-amber-500 underline mt-4 block">Torna al lessico</Link>
+                <Link to="/lessico" className="text-[#d97757] underline mt-4 block">Torna al lessico</Link>
             </div>
         )
     }
@@ -27,7 +27,7 @@ export default function DettaglioTermine() {
             {/* Bottone indietro */}
             <button
                 onClick={() => navigate(-1)}
-                className="text-stone-500 hover:text-amber-500 transition-colors mb-8 text-sm flex items-center gap-2"
+                className="text-stone-500 hover:text-[#d97757] transition-colors mb-8 text-sm flex items-center gap-2"
             >
                 ← Indietro
             </button>
@@ -37,25 +37,25 @@ export default function DettaglioTermine() {
                 <div className={`text-xs tracking-widest uppercase mb-2 ${t.colore.split(" ")[1]}`}>
                     {t.categoria}
                 </div>
-                <h1 className="text-4xl font-bold text-stone-100 mb-1">{t.termine}</h1>
+                <h1 className="text-4xl font-bold text-stone-900 dark:text-stone-100 mb-1">{t.termine}</h1>
             </div>
 
             {/* Definizione */}
             <div className="mb-8">
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Definizione</h2>
-                <p className="text-stone-300 leading-relaxed text-sm">{t.definizione}</p>
+                <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm">{t.definizione}</p>
             </div>
 
             {/* Uso */}
             <div className="mb-8">
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Uso</h2>
-                <p className="text-stone-300 leading-relaxed text-sm">{t.uso}</p>
+                <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm">{t.uso}</p>
             </div>
 
             {/* Storia */}
             <div className="mb-8">
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Storia</h2>
-                <p className="text-stone-300 leading-relaxed text-sm">{t.storia}</p>
+                <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm">{t.storia}</p>
             </div>
 
             {/* Autori collegati */}
@@ -69,14 +69,14 @@ export default function DettaglioTermine() {
                             <Link
                                 key={f.id}
                                 to={`/filosofo/${f.id}`}
-                                className={`flex items-center gap-3 px-4 py-3 bg-stone-900 border ${f.colore.split(" ")[0]} rounded-lg hover:bg-stone-800 transition-colors group`}
+                                className={`flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-900 border ${f.colore.split(" ")[0]} rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors group`}
                             >
                                 <span className="text-xl leading-none">{f.emoji}</span>
                                 <div>
-                                    <div className={`text-sm font-semibold text-stone-100 group-hover:${f.colore.split(" ")[1]} transition-colors`}>
+                                    <div className={`text-sm font-semibold text-stone-900 dark:text-stone-100 group-hover:${f.colore.split(" ")[1]} transition-colors`}>
                                         {f.nome}
                                     </div>
-                                    <div className="text-xs text-stone-600">{f.anni}</div>
+                                    <div className="text-xs text-stone-400">{f.anni}</div>
                                 </div>
                             </Link>
                         ))}
@@ -85,8 +85,8 @@ export default function DettaglioTermine() {
             )}
 
             {/* Altri termini */}
-            <div className="mt-10 pt-8 border-t border-stone-800">
-                <p className="text-xs text-stone-600 uppercase tracking-widest mb-4">Altri termini</p>
+            <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800">
+                <p className="text-xs text-stone-400 uppercase tracking-widest mb-4">Altri termini</p>
                 <div className="flex flex-wrap gap-2">
                     {termini
                         .filter(term => term.id !== id)
@@ -94,7 +94,7 @@ export default function DettaglioTermine() {
                             <Link
                                 key={term.id}
                                 to={`/lessico/${term.id}`}
-                                className="text-sm text-stone-400 hover:text-amber-500 transition-colors"
+                                className="text-sm text-stone-500 hover:text-[#d97757] transition-colors"
                             >
                                 {term.termine} →
                             </Link>
