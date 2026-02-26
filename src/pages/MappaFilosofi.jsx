@@ -4,84 +4,14 @@ import { useDarkMode } from '../context/DarkMode'
 
 const filosofi = [
   {
-    id: 'hegel', nome: 'Hegel', emoji: '🌀', gruppo: 'Idealismo', anni: '1770–1831',
-    citazione: 'Tutto ciò che è reale è razionale.',
-    connessioni: ['marx', 'heidegger', 'nietzsche', 'bodei'],
-  },
-  {
-    id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
-    citazione: 'Tornare alle cose stesse.',
-    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka'],
-  },
-  {
-    id: 'freud', nome: 'Freud', emoji: '🧠', gruppo: 'Psicoanalisi', anni: '1856–1939',
-    citazione: "L'inconscio governa la nostra vita.",
-    connessioni: ['jung', 'deleuze'],
-  },
-  {
-    id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
-    citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
-    connessioni: ['foucault'],
-  },
-  {
-    id: 'nietzsche', nome: 'Nietzsche', emoji: '⚡', gruppo: 'Esistenzialismo', anni: '1844–1900',
-    citazione: 'Diventa ciò che sei.',
-    connessioni: ['heidegger', 'deleuze', 'foucault'],
-  },
-  {
-    id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
-    citazione: "Il linguaggio è la casa dell'essere.",
-    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben'],
-  },
-  {
-    id: 'jung', nome: 'Jung', emoji: '☯️', gruppo: 'Psicoanalisi', anni: '1875–1961',
-    citazione: "Finché non rendi consapevole l'inconscio, sarà lui a dirigerti.",
-    connessioni: [],
-  },
-  {
-    id: 'wittgenstein', nome: 'Wittgenstein', emoji: '🔷', gruppo: 'Filosofia del Linguaggio', anni: '1889–1951',
-    citazione: 'Ciò di cui non si può parlare si deve tacere.',
-    connessioni: ['derrida'],
+    id: 'agamben', nome: 'Agamben', emoji: '🏛️', gruppo: 'Biopolitica', anni: '1942–',
+    citazione: 'Lo stato di eccezione è il paradigma di governo dominante.',
+    connessioni: ['esposito'],
   },
   {
     id: 'arendt', nome: 'Arendt', emoji: '⚖️', gruppo: 'Filosofia Politica', anni: '1906–1975',
     citazione: 'Il male nasce dalla banalità, non dalla mostruosità.',
     connessioni: ['cavarero'],
-  },
-  {
-    id: 'weil', nome: 'Simone Weil', emoji: '✨', gruppo: 'Mistica', anni: '1909–1943',
-    citazione: "L'attenzione è la forma più rara di generosità.",
-    connessioni: [],
-  },
-  {
-    id: 'fink', nome: 'Eugen Fink', emoji: '🎭', gruppo: 'Fenomenologia', anni: '1905–1975',
-    citazione: 'Il gioco è il simbolo del mondo.',
-    connessioni: [],
-  },
-  {
-    id: 'foucault', nome: 'Foucault', emoji: '👁️', gruppo: 'Post-strutturalismo', anni: '1926–1984',
-    citazione: 'Il potere è ovunque perché viene da ovunque.',
-    connessioni: ['derrida', 'agamben', 'esposito'],
-  },
-  {
-    id: 'deleuze', nome: 'Deleuze', emoji: '🌿', gruppo: 'Post-strutturalismo', anni: '1925–1995',
-    citazione: 'Il pensiero nasce dal caos.',
-    connessioni: ['derrida'],
-  },
-  {
-    id: 'derrida', nome: 'Derrida', emoji: '✂️', gruppo: 'Decostruzionismo', anni: '1930–2004',
-    citazione: "Non c'è nulla al di fuori del testo.",
-    connessioni: ['butler'],
-  },
-  {
-    id: 'bodei', nome: 'Remo Bodei', emoji: '🇮🇹', gruppo: 'Filosofia Contemporanea', anni: '1938–2019',
-    citazione: 'Le passioni sono alleate necessarie della ragione.',
-    connessioni: [],
-  },
-  {
-    id: 'agamben', nome: 'Agamben', emoji: '🏛️', gruppo: 'Biopolitica', anni: '1942–',
-    citazione: 'Lo stato di eccezione è il paradigma di governo dominante.',
-    connessioni: ['esposito'],
   },
   {
     id: 'baudrillard', nome: 'Baudrillard', emoji: '🪞', gruppo: 'Post-strutturalismo', anni: '1929–2007',
@@ -91,6 +21,11 @@ const filosofi = [
   {
     id: 'blumenberg', nome: 'Blumenberg', emoji: '📚', gruppo: 'Ermeneutica', anni: '1920–1996',
     citazione: 'I miti sono risposte alle esigenze irriducibili dell\'essere umano.',
+    connessioni: [],
+  },
+  {
+    id: 'bodei', nome: 'Remo Bodei', emoji: '🇮🇹', gruppo: 'Filosofia Contemporanea', anni: '1938–2019',
+    citazione: 'Le passioni sono alleate necessarie della ragione.',
     connessioni: [],
   },
   {
@@ -104,9 +39,34 @@ const filosofi = [
     connessioni: [],
   },
   {
+    id: 'deleuze', nome: 'Deleuze', emoji: '🌿', gruppo: 'Post-strutturalismo', anni: '1925–1995',
+    citazione: 'Il pensiero nasce dal caos.',
+    connessioni: ['derrida'],
+  },
+  {
+    id: 'derrida', nome: 'Derrida', emoji: '✂️', gruppo: 'Decostruzionismo', anni: '1930–2004',
+    citazione: "Non c'è nulla al di fuori del testo.",
+    connessioni: ['butler'],
+  },
+  {
     id: 'esposito', nome: 'Esposito', emoji: '🛡️', gruppo: 'Biopolitica', anni: '1950–',
     citazione: 'L\'immunitas è la forma negativa della communitas.',
     connessioni: [],
+  },
+  {
+    id: 'fink', nome: 'Eugen Fink', emoji: '🎭', gruppo: 'Fenomenologia', anni: '1905–1975',
+    citazione: 'Il gioco è il simbolo del mondo.',
+    connessioni: [],
+  },
+  {
+    id: 'foucault', nome: 'Foucault', emoji: '👁️', gruppo: 'Post-strutturalismo', anni: '1926–1984',
+    citazione: 'Il potere è ovunque perché viene da ovunque.',
+    connessioni: ['derrida', 'agamben', 'esposito'],
+  },
+  {
+    id: 'freud', nome: 'Freud', emoji: '🧠', gruppo: 'Psicoanalisi', anni: '1856–1939',
+    citazione: "L'inconscio governa la nostra vita.",
+    connessioni: ['jung', 'deleuze'],
   },
   {
     id: 'han', nome: 'Byung-Chul Han', emoji: '📱', gruppo: 'Filosofia della tecnologia', anni: '1959–',
@@ -119,14 +79,44 @@ const filosofi = [
     connessioni: [],
   },
   {
+    id: 'hegel', nome: 'Hegel', emoji: '🌀', gruppo: 'Idealismo', anni: '1770–1831',
+    citazione: 'Tutto ciò che è reale è razionale.',
+    connessioni: ['marx', 'heidegger', 'nietzsche', 'bodei'],
+  },
+  {
+    id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
+    citazione: "Il linguaggio è la casa dell'essere.",
+    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben'],
+  },
+  {
+    id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
+    citazione: 'Tornare alle cose stesse.',
+    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka'],
+  },
+  {
     id: 'jankelevitch', nome: 'Jankélévitch', emoji: '🎵', gruppo: 'Filosofia morale', anni: '1903–1985',
     citazione: 'L\'ironia è la coscienza di una doppiezza irriducibile.',
+    connessioni: [],
+  },
+  {
+    id: 'jung', nome: 'Jung', emoji: '☯️', gruppo: 'Psicoanalisi', anni: '1875–1961',
+    citazione: "Finché non rendi consapevole l'inconscio, sarà lui a dirigerti.",
     connessioni: [],
   },
   {
     id: 'levinas', nome: 'Levinas', emoji: '👤', gruppo: 'Fenomenologia', anni: '1906–1995',
     citazione: 'Il volto dell\'altro è la prima parola.',
     connessioni: ['derrida'],
+  },
+  {
+    id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
+    citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
+    connessioni: ['foucault'],
+  },
+  {
+    id: 'nietzsche', nome: 'Nietzsche', emoji: '⚡', gruppo: 'Esistenzialismo', anni: '1844–1900',
+    citazione: 'Diventa ciò che sei.',
+    connessioni: ['heidegger', 'deleuze', 'foucault'],
   },
   {
     id: 'patocka', nome: 'Patočka', emoji: '🌍', gruppo: 'Fenomenologia', anni: '1907–1977',
@@ -137,6 +127,16 @@ const filosofi = [
     id: 'rovelli', nome: 'Rovelli', emoji: '⚛️', gruppo: 'Filosofia della fisica', anni: '1956–',
     citazione: 'Non siamo altro che una rete di relazioni.',
     connessioni: [],
+  },
+  {
+    id: 'weil', nome: 'Simone Weil', emoji: '✨', gruppo: 'Mistica', anni: '1909–1943',
+    citazione: "L'attenzione è la forma più rara di generosità.",
+    connessioni: [],
+  },
+  {
+    id: 'wittgenstein', nome: 'Wittgenstein', emoji: '🔷', gruppo: 'Filosofia del Linguaggio', anni: '1889–1951',
+    citazione: 'Ciò di cui non si può parlare si deve tacere.',
+    connessioni: ['derrida'],
   },
 ]
 
