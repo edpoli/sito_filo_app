@@ -121,7 +121,7 @@ function Risposta({ testo, onClick, selezionata }) {
       className={`w-full text-left px-5 py-4 mb-3 rounded-xl border transition-all duration-200 font-serif text-base cursor-pointer
         ${selezionata
           ? "border-[#d97757] bg-[#d97757]/10 text-stone-900 dark:text-stone-100"
-          : "border-stone-300 dark:border-stone-700 bg-transparent text-stone-700 dark:text-stone-300 hover:border-stone-400 hover:bg-stone-50 dark:hover:border-stone-600 dark:hover:bg-stone-800"
+          : "border-stone-400 dark:border-stone-700 bg-transparent text-stone-700 dark:text-stone-300 hover:border-stone-500 hover:bg-stone-100 dark:hover:border-stone-600 dark:hover:bg-stone-800"
         }`}
     >
       <span className={`mr-3 ${selezionata ? "text-[#d97757]" : "text-stone-400"}`}>
@@ -165,7 +165,7 @@ function Risultato({ vincitoreId, onRicomincia }) {
       <p className="text-stone-500 text-sm mb-8">{f.anni}</p>
 
       {/* Card statistiche */}
-      <div className={`border ${f.bordo} rounded-2xl p-6 mb-6 text-left bg-stone-50 dark:bg-stone-800`}>
+      <div className={`border ${f.bordo} rounded-2xl p-6 mb-6 text-left bg-stone-100 dark:bg-stone-800 shadow-lg shadow-stone-300/60 dark:shadow-xl dark:shadow-black/50`}>
         <p className={`text-xs tracking-widest uppercase mb-5 font-bold ${f.colore}`}>
           Statistiche
         </p>
@@ -199,7 +199,7 @@ function Risultato({ vincitoreId, onRicomincia }) {
       </div>
 
       {/* Descrizione personalizzata */}
-      <div className={`border-l-4 ${f.bordo} bg-stone-50 dark:bg-stone-800 rounded-r-xl p-5 mb-8 text-left`}>
+      <div className={`border-l-4 ${f.bordo} bg-stone-100 dark:bg-stone-800 rounded-r-xl p-5 mb-8 text-left shadow-lg shadow-stone-300/60 dark:shadow-xl dark:shadow-black/50`}>
         <p className={`italic text-sm mb-3 ${f.colore}`}>"{f.idea}"</p>
         <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm">{f.desc}</p>
       </div>
@@ -357,7 +357,7 @@ export default function Quiz() {
                 <div className="flex gap-3 mt-2">
                   <button
                     onClick={indietro}
-                    className="py-4 w-full px-6 rounded-xl border border-stone-300 dark:border-stone-700 text-stone-500 dark:text-stone-400 font-bold font-serif hover:border-stone-400 hover:text-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
+                    className="py-4 w-full px-6 rounded-xl border border-stone-400 dark:border-stone-700 text-stone-500 dark:text-stone-400 font-bold font-serif hover:border-stone-500 hover:text-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
                   >
                     ← Indietro
                   </button>
@@ -367,7 +367,7 @@ export default function Quiz() {
                     className={`w-full py-4 rounded-xl font-bold text-base transition-all duration-200 font-serif
                       ${rispostaCorrente !== undefined
                         ? "bg-[#d97757] text-white cursor-pointer hover:bg-[#c86843]"
-                        : "bg-transparent border border-stone-200 dark:border-stone-700 text-stone-300 dark:text-stone-600 cursor-not-allowed"
+                        : "bg-transparent border border-stone-400 dark:border-stone-700 text-stone-400 dark:text-stone-600 cursor-not-allowed"
                       }`}
                   >
                     {indiceDomanda < domande.length - 1 ? "Avanti →" : "Scopri il risultato →"}

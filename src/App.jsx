@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { DarkModeProvider, useDarkMode } from './context/DarkMode';
+import { DarkModeProvider } from './context/DarkMode';
 import NotFound from './pages/NotFound';
 import DettaglioFilosofo from './pages/DettaglioFilosofo';
 import Home from "./pages/Home";
@@ -14,10 +14,8 @@ import MappaFilosofi from './pages/MappaFilosofi';
 import Footer from './components/Footer';
 
 function AppContent() {
-  const { dark } = useDarkMode()
-
   return (
-    <div className={`min-h-screen bg-[#faf8f4] dark:bg-stone-950 font-sans text-stone-900 dark:text-stone-100 transition-colors duration-300 ${dark ? 'dark' : ''}`}>
+    <div className="min-h-screen bg-[#faf8f4] dark:bg-stone-950 font-sans text-stone-900 dark:text-stone-100 transition-colors duration-300">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

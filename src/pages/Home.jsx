@@ -1,7 +1,21 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
+
+const TESTO = "Filosofia Applicata"
 
 export default function Home() {
+    const [visibile, setVisibile] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setVisibile(v => {
+                if (v >= TESTO.length) { clearInterval(interval); return v }
+                return v + 1
+            })
+        }, 80)
+        return () => clearInterval(interval)
+    }, [])
+
     return (
         <div className="min-h-screen flex items-center justify-center p-8 font-serif">
             <div className="w-full max-w-lg text-center">
@@ -9,8 +23,20 @@ export default function Home() {
                 <p className="text-[#d97757] text-xs tracking-widest uppercase mb-5">
                     Benvenuto su
                 </p>
-                <h1 className="text-5xl text-stone-900 dark:text-stone-100 font-black mb-2">Filosofia</h1>
-                <h2 className="text-5xl font-black text-[#d97757] mb-8">Applicata</h2>
+
+                <div className="mb-8">
+                    <h1 className="text-5xl font-black text-stone-900 dark:text-stone-100 mb-2">
+                        {TESTO.slice(0, Math.min(visibile, 9))}
+                        {visibile < 10 && <span className="animate-pulse">|</span>}
+                    </h1>
+                    {visibile >= 10 && (
+                        <h2 className="text-5xl font-black text-[#d97757]">
+                            {TESTO.slice(10, visibile)}
+                            {visibile < TESTO.length && <span className="animate-pulse">|</span>}
+                        </h2>
+                    )}
+                </div>
+
                 <p className="text-stone-600 dark:text-stone-400 mb-12 text-sm leading-relaxed">
                     Esplora i grandi filosofi della storia, impara i concetti e come sono tra loro legati e scopri a quale filosofo ti avvicini.
                 </p>
@@ -31,7 +57,7 @@ export default function Home() {
                     </Link>
                     <Link
                         to="/mappa"
-                        className="px-8 py-4 bg-transparent border border-stone-300  dark:border-stone-700 text-stone-500 dark:text-stone-400 rounded-xl font-black text-base hover:bg-stone-300 hover:border-stone-400 hover:text-stone-700 dark:hover:bg-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
+                        className="px-8 py-4 bg-transparent border border-stone-300 dark:border-stone-700 text-stone-500 dark:text-stone-400 rounded-xl font-black text-base hover:bg-stone-300 hover:border-stone-400 hover:text-stone-700 dark:hover:bg-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
                     >
                         🔗 Mappa delle connessioni
                     </Link>
@@ -40,6 +66,4 @@ export default function Home() {
             </div>
         </div>
     )
-
-
 }

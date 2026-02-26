@@ -89,7 +89,7 @@ export default function DettaglioFilosofo() {
             </div>
 
             {/* Citazione */}
-            <div className="bg-stone-50 dark:bg-stone-800 border border-[#e7e0d8] dark:border-stone-700 rounded-xl p-5 mb-6">
+            <div className="bg-stone-100 dark:bg-stone-800 border border-stone-300 dark:border-stone-700 rounded-xl p-5 mb-6 shadow-lg shadow-stone-300/60 dark:shadow-xl dark:shadow-black/50">
                 <p className={`italic text-sm ${f.colore.split(" ")[1]}`}>"{f.citazione}"</p>
             </div>
 
@@ -101,7 +101,7 @@ export default function DettaglioFilosofo() {
                 <h2 className="text-xs tracking-widest text-stone-500 uppercase mb-3">Opere principali</h2>
                 <div className="flex flex-wrap gap-2">
                     {f.opere.map((o) => (
-                        <span key={o} className="text-xs bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700">
+                        <span key={o} className="text-xs bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300 px-3 py-1.5 rounded-full border border-stone-400 dark:border-stone-700">
                             {o}
                         </span>
                     ))}
@@ -132,8 +132,8 @@ export default function DettaglioFilosofo() {
             </div>
 
             {/* Link agli altri filosofi */}
-            <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800">
-                <p className="text-xs text-stone-400 uppercase tracking-widest mb-4">Altri filosofi</p>
+            <div className="mt-10 pt-8 border-t border-stone-400 dark:border-stone-800">
+                <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest mb-4">Altri filosofi</p>
                 <div className="flex flex-wrap gap-2">
                     {filosofi
                         .filter((fil) => fil.id !== id)

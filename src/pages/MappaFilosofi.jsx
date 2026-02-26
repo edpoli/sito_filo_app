@@ -142,25 +142,25 @@ const filosofi = [
 
 // coloriGruppo: bordo = colore vivido, bg = sfondo pastello chiaro, testo = testo scuro su sfondo chiaro
 const coloriGruppo = {
-  'Idealismo':                      { bg: '#eff6ff', bordo: '#3b82f6', testo: '#1d4ed8' },
-  'Fenomenologia':                  { bg: '#f0fdf4', bordo: '#22c55e', testo: '#15803d' },
-  'Psicoanalisi':                   { bg: '#faf5ff', bordo: '#a855f7', testo: '#7e22ce' },
-  'Materialismo':                   { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
-  'Esistenzialismo':                { bg: '#fff7ed', bordo: '#f97316', testo: '#c2410c' },
-  'Filosofia del Linguaggio':       { bg: '#ecfeff', bordo: '#06b6d4', testo: '#0e7490' },
-  'Filosofia Politica':             { bg: '#eef2ff', bordo: '#6366f1', testo: '#4338ca' },
-  'Post-strutturalismo':            { bg: '#fdf2f8', bordo: '#ec4899', testo: '#be185d' },
-  'Decostruzionismo':               { bg: '#fff1f2', bordo: '#f43f5e', testo: '#be123c' },
-  'Mistica':                        { bg: '#fffbeb', bordo: '#f59e0b', testo: '#b45309' },
-  'Filosofia Contemporanea':        { bg: '#f0fdf4', bordo: '#4ade80', testo: '#166534' },
-  'Biopolitica':                    { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
-  'Ermeneutica':                    { bg: '#fffbeb', bordo: '#d97706', testo: '#92400e' },
-  'Teoria queer':                   { bg: '#fdf2f8', bordo: '#f472b6', testo: '#be185d' },
-  'Filosofia femminista':           { bg: '#f0fdfa', bordo: '#2dd4bf', testo: '#0f766e' },
-  'Filosofia della tecnologia':     { bg: '#f8fafc', bordo: '#64748b', testo: '#334155' },
+  'Idealismo': { bg: '#eff6ff', bordo: '#3b82f6', testo: '#1d4ed8' },
+  'Fenomenologia': { bg: '#f0fdf4', bordo: '#22c55e', testo: '#15803d' },
+  'Psicoanalisi': { bg: '#faf5ff', bordo: '#a855f7', testo: '#7e22ce' },
+  'Materialismo': { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
+  'Esistenzialismo': { bg: '#fff7ed', bordo: '#f97316', testo: '#c2410c' },
+  'Filosofia del Linguaggio': { bg: '#ecfeff', bordo: '#06b6d4', testo: '#0e7490' },
+  'Filosofia Politica': { bg: '#eef2ff', bordo: '#6366f1', testo: '#4338ca' },
+  'Post-strutturalismo': { bg: '#fdf2f8', bordo: '#ec4899', testo: '#be185d' },
+  'Decostruzionismo': { bg: '#fff1f2', bordo: '#f43f5e', testo: '#be123c' },
+  'Mistica': { bg: '#fffbeb', bordo: '#f59e0b', testo: '#b45309' },
+  'Filosofia Contemporanea': { bg: '#f0fdf4', bordo: '#4ade80', testo: '#166534' },
+  'Biopolitica': { bg: '#fef2f2', bordo: '#ef4444', testo: '#b91c1c' },
+  'Ermeneutica': { bg: '#fffbeb', bordo: '#d97706', testo: '#92400e' },
+  'Teoria queer': { bg: '#fdf2f8', bordo: '#f472b6', testo: '#be185d' },
+  'Filosofia femminista': { bg: '#f0fdfa', bordo: '#2dd4bf', testo: '#0f766e' },
+  'Filosofia della tecnologia': { bg: '#f8fafc', bordo: '#64748b', testo: '#334155' },
   'Studi femministi della scienza': { bg: '#f0fdf4', bordo: '#16a34a', testo: '#14532d' },
-  'Filosofia morale':               { bg: '#fefce8', bordo: '#eab308', testo: '#713f12' },
-  'Filosofia della fisica':         { bg: '#f0f9ff', bordo: '#38bdf8', testo: '#0c4a6e' },
+  'Filosofia morale': { bg: '#fefce8', bordo: '#eab308', testo: '#713f12' },
+  'Filosofia della fisica': { bg: '#f0f9ff', bordo: '#38bdf8', testo: '#0c4a6e' },
 }
 
 const HAI_SCHEDA = new Set([
@@ -209,10 +209,10 @@ export default function MappaFilosofi() {
     return (
       <div
         onClick={() => setSelezionato(selezionato === f.id ? null : f.id)}
-        className={`scale-90 hover:scale-100 rounded-xl p-3.5 cursor-pointer transition-all duration-[250ms] border
+        className={`scale-90 hover:scale-100 rounded-xl p-3.5 cursor-pointer transition-all duration-[250ms] border shadow-lg shadow-stone-300/60 dark:shadow-xl dark:shadow-black/50
           ${stato === 'dimmed' ? 'opacity-25' : ''}
           ${stato === 'neutro' || stato === 'dimmed'
-            ? 'border-[#e7e0d8] dark:border-stone-800 bg-white dark:bg-stone-900'
+            ? 'border-stone-400 dark:border-stone-800 bg-stone-100 dark:bg-stone-900'
             : 'border-transparent'
           }`}
         style={stiliDinamici}
@@ -340,7 +340,7 @@ export default function MappaFilosofi() {
                     <div
                       key={id}
                       onClick={() => setSelezionato(id)}
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors"
                       style={{ border: `1px solid ${colori.bordo}44` }}
                     >
                       <span className="text-[18px]">{c.emoji}</span>
@@ -366,7 +366,7 @@ export default function MappaFilosofi() {
                     <div
                       key={f.id}
                       onClick={() => setSelezionato(f.id)}
-                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                      className="flex items-center gap-2 px-2.5 py-2 rounded-lg cursor-pointer mb-1.5 bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors"
                       style={{ border: `1px solid ${colori.bordo}44` }}
                     >
                       <span className="text-[18px]">{f.emoji}</span>

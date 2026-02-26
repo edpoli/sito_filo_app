@@ -23,7 +23,7 @@ export default function Galleria() {
                     <Link
                         key={f.id}
                         to={`/filosofo/${f.id}`}
-                        className={`group flex flex-col p-5 bg-white dark:bg-stone-900 border ${f.colore.split(" ")[0]} rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800 transition-all duration-200 shadow-sm transform scale-90 hover:scale-100`}
+                        className={`group flex flex-col p-5 bg-stone-100 dark:bg-stone-900 border ${f.colore.split(" ")[0]} rounded-lg hover:bg-stone-200 dark:hover:bg-stone-800 transition-all duration-200 shadow-lg shadow-stone-300/60 dark:shadow-xl dark:shadow-black/50 scale-90 hover:scale-100`}
                     >
                         {/* Emoji + nome */}
                         <div className="flex items-center gap-3 mb-3">
@@ -32,7 +32,7 @@ export default function Galleria() {
                                 <div className={`font-semibold text-sm text-stone-900 dark:text-stone-100 group-hover:${f.colore.split(" ")[1]} transition-colors`}>
                                     {f.nome}
                                 </div>
-                                <div className="text-stone-400 text-xs">{f.anni}</div>
+                                <div className="text-stone-600 dark:text-stone-400 text-xs">{f.anni}</div>
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@ export default function Galleria() {
                         {/* Concetti */}
                         <div className="flex flex-wrap gap-1 mt-3">
                             {f.concetti.slice(0, 2).map((c) => (
-                                <span key={c} className="text-xs bg-stone-100 dark:bg-stone-800 text-stone-500 px-2 py-0.5 rounded border border-stone-200 dark:border-stone-700">
+                                <span key={c} className="text-xs bg-stone-200 dark:bg-stone-800 text-stone-500 px-2 py-0.5 rounded border border-stone-400 dark:border-stone-700">
                                     {c}
                                 </span>
                             ))}
