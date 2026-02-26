@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 export default function Home() {
     return (
@@ -18,7 +19,7 @@ export default function Home() {
                 <div className="flex flex-col gap-3">
                     <Link
                         to="/enciclopedia"
-                        className="px-8 py-4 bg-[#d97757] text-white rounded-xl font-black text-base hover:bg-[#c86843] transition-all duration-200"
+                        className="px-8 py-4 bg-transparent border border-[#d33f0e] text-stone-700 dark:text-stone-100 hover:text-stone-100 rounded-xl font-black text-base hover:bg-[#d33f0e] transition-all duration-200"
                     >
                         🏛️ Enciclopedia Filosofica
                     </Link>
@@ -30,7 +31,7 @@ export default function Home() {
                     </Link>
                     <Link
                         to="/mappa"
-                        className="px-8 py-4 bg-transparent border border-stone-300 dark:border-stone-700 text-stone-500 dark:text-stone-400 rounded-xl font-black text-base hover:border-stone-400 hover:text-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
+                        className="px-8 py-4 bg-transparent border border-stone-300  dark:border-stone-700 text-stone-500 dark:text-stone-400 rounded-xl font-black text-base hover:bg-stone-300 hover:border-stone-400 hover:text-stone-700 dark:hover:bg-stone-700 dark:hover:border-stone-500 dark:hover:text-stone-200 transition-all duration-200"
                     >
                         🔗 Mappa delle connessioni
                     </Link>
@@ -39,4 +40,6 @@ export default function Home() {
             </div>
         </div>
     )
+
+
 }

@@ -11,6 +11,7 @@ import Contatti from './pages/Contatti';
 import Lessico from './pages/Lessico';
 import DettaglioTermine from './pages/DettaglioTermine';
 import MappaFilosofi from './pages/MappaFilosofi';
+import Footer from './components/Footer';
 
 function AppContent() {
   const { dark } = useDarkMode()
@@ -29,6 +30,7 @@ function AppContent() {
         <Route path="/mappa" element={<MappaFilosofi />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   )
 }
