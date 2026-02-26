@@ -12,6 +12,7 @@ import Contatti from './pages/Contatti';
 import Lessico from './pages/Lessico';
 import DettaglioTermine from './pages/DettaglioTermine';
 import MappaFilosofi from './pages/MappaFilosofi';
+import Gioco from './pages/Gioco';
 
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/lessico" element={<Lessico />} />
           <Route path="/lessico/:id" element={<DettaglioTermine />} />
           <Route path="/mappa" element={<MappaFilosofi />} />
+          <Route path="/gioco" element={<Gioco />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
