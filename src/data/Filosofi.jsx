@@ -84,18 +84,6 @@ export const filosofi = [
         concetti: ["Singolarità plurale", "Unicità", "Narrazione", "Corpo vocale"],
     },
     {
-        id: "costa",
-        nome: "Vincenzo Costa",
-        anni: "1963–",
-        corrente: "Fenomenologia",
-        emoji: "🔭",
-        colore: "border-lime-600 text-lime-600",
-        citazione: "La fenomenologia è il tentativo di comprendere il senso dell'esperienza vissuta prima della teoria.",
-        bio: "Vincenzo Costa nasce a Mileto nel 1963 e si afferma come uno dei più importanti fenomenologi italiani contemporanei, con una ricerca che intreccia fenomenologia husserliana, ontologia, filosofia della percezione e critica della tecnica moderna. La sua opera fondamentale — Il mondo esterno (2000) e La verità del mondo (2012) — esplora il modo in cui il mondo si dà all'esperienza: non come rappresentazione interna alla mente, ma come struttura di significati già vissuti, già articolati nel corpo e nel gesto, prima di qualsiasi riflessione teorica. Costa sviluppa una fenomenologia dell'intersoggettività radicata nella vita pratica: il mondo non è un oggetto di contemplazione ma l'orizzonte condiviso delle nostre pratiche quotidiane. La sua riflessione sulla tecnica contemporanea — in dialogo con Husserl, Heidegger e Merleau-Ponty — analizza come le tecnologie digitali trasformino non solo le nostre abitudini ma la struttura stessa della nostra esperienza percettiva: la schermatura del reale, la mediazione degli schermi, la riduzione dell'esperienza a immagine. Costa è anche un acuto lettore di Husserl, al quale ha dedicato studi interpretativi rigorosi, contribuendo a rinnovare la ricezione della fenomenologia in Italia.",
-        opere: ["Il mondo esterno", "La verità del mondo", "Fenomenologia dell'intersoggettività"],
-        concetti: ["Intersoggettività", "Intenzionalità", "Mondo della vita", "Fenomenologia"],
-    },
-    {
         id: "deleuze",
         nome: "Gilles Deleuze",
         anni: "1925–1995",
