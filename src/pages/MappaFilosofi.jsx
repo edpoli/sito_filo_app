@@ -86,12 +86,12 @@ const filosofi = [
   {
     id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
     citazione: "Il linguaggio è la casa dell'essere.",
-    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han'],
+    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han', 'merleau-ponty'],
   },
   {
     id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
     citazione: 'Tornare alle cose stesse.',
-    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka', 'derrida'],
+    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka', 'derrida', 'merleau-ponty'],
   },
   {
     id: 'jankelevitch', nome: 'Jankélévitch', emoji: '🎵', gruppo: 'Filosofia morale', anni: '1903–1985',
@@ -114,6 +114,11 @@ const filosofi = [
     connessioni: ['derrida', 'cavarero', 'butler'],
   },
   {
+    id: 'merleau-ponty', nome: 'Merleau-Ponty', emoji: '🤲', gruppo: 'Fenomenologia', anni: '1908–1961',
+    citazione: 'Il corpo è il veicolo dell\'essere nel mondo.',
+    connessioni: ['butler', 'haraway', 'cavarero', 'levinas', 'derrida'],
+  },
+  {
     id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
     citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
     connessioni: ['foucault', 'deleuze', 'derrida', 'baudrillard', 'arendt', 'han', 'haraway'],
@@ -132,6 +137,11 @@ const filosofi = [
     id: 'rovelli', nome: 'Rovelli', emoji: '⚛️', gruppo: 'Filosofia della fisica', anni: '1956–',
     citazione: 'Non siamo altro che una rete di relazioni.',
     connessioni: [],
+  },
+  {
+    id: 'vico', nome: 'Vico', emoji: '📜', gruppo: 'Filosofia della storia', anni: '1668–1744',
+    citazione: 'Il vero e il fatto si convertono.',
+    connessioni: ['blumenberg', 'hegel', 'bodei'],
   },
   {
     id: 'weil', nome: 'Simone Weil', emoji: '✨', gruppo: 'Mistica', anni: '1909–1943',
@@ -166,6 +176,7 @@ const coloriGruppo = {
   'Studi femministi della scienza': { bg: '#f0fdf4', bordo: '#16a34a', testo: '#14532d' },
   'Filosofia morale': { bg: '#fefce8', bordo: '#eab308', testo: '#713f12' },
   'Filosofia della fisica': { bg: '#f0f9ff', bordo: '#38bdf8', testo: '#0c4a6e' },
+  'Filosofia della storia': { bg: '#fdf6e8', bordo: '#b45309', testo: '#7c2d12' },
 }
 
 const HAI_SCHEDA = new Set([
@@ -173,7 +184,7 @@ const HAI_SCHEDA = new Set([
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
   'marx', 'nietzsche',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
-  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'patocka', 'rovelli',
+  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'merleau-ponty', 'patocka', 'rovelli', 'vico',
 ])
 
 const gruppi = [...new Set(filosofi.map(f => f.gruppo))]

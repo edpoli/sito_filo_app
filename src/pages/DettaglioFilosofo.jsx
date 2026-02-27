@@ -94,7 +94,11 @@ export default function DettaglioFilosofo() {
             </div>
 
             {/* Bio */}
-            <p className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm mb-8">{f.bio}</p>
+            <div className="text-stone-700 dark:text-stone-300 leading-relaxed text-sm mb-8 space-y-4">
+                {f.bio.split('\n\n').map((paragrafo, i) => (
+                    <p key={i}>{paragrafo}</p>
+                ))}
+            </div>
 
             {/* Opere */}
             <div className="mb-6">
