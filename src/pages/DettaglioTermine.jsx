@@ -21,6 +21,8 @@ export default function DettaglioTermine() {
         .map(aid => filosofi.find(f => f.id === aid))
         .filter(Boolean)
 
+    const stessaCategoria = termini.filter(term => term.id !== id && term.categoria === t.categoria)
+
     return (
         <div className="max-w-2xl mx-auto px-6 py-12">
 
@@ -84,22 +86,33 @@ export default function DettaglioTermine() {
                 </div>
             )}
 
-            {/* Altri termini */}
-            <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800">
-                <p className="text-xs text-stone-400 uppercase tracking-widest mb-4">Altri termini</p>
-                <div className="flex flex-wrap gap-2">
-                    {termini
-                        .filter(term => term.id !== id)
-                        .map(term => (
-                            <Link
-                                key={term.id}
-                                to={`/lessico/${term.id}`}
-                                className="text-sm text-stone-500 hover:text-[#d97757] transition-colors"
-                            >
-                                {term.termine} →
-                            </Link>
-                        ))}
-                </div>
+            {/* Termini della stessa categoria */}
+            <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800 space-y-5">
+                {stessaCategoria.length > 0 && (
+                    <div>
+                        <p className="text-xs text-stone-400 uppercase tracking-widest mb-3">
+                            Altri termini — {t.categoria}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            {stessaCategoria.map(term => (
+                                <Link
+                                    key={term.id}
+                                    to={`/lessico/${term.id}`}
+                                    className={`text-xs px-3 py-1.5 rounded-full border ${term.colore} hover:opacity-70 transition-opacity`}
+                                >
+                                    {term.termine} →
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                <Link
+                    to="/lessico"
+                    className="inline-flex items-center gap-2 text-xs text-stone-400 hover:text-[#d97757] transition-colors"
+                >
+                    ← Torna al vocabolario
+                </Link>
             </div>
 
         </div>

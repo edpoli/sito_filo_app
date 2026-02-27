@@ -1,5 +1,6 @@
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { filosofi } from '../data/Filosofi'
+import { connessioniMap } from './MappaFilosofi'
 
 const lessicoMap = {
     "Decostruzione": "decostruzione",
@@ -59,6 +60,16 @@ export default function DettaglioFilosofo() {
 
     // Cerca il filosofo nell'array usando l'id dall'URL
     const f = filosofi.find((fil) => fil.id === id);
+
+    // Filosofi che questo ha influenzato (connessioni uscenti)
+    const outgoingIds = connessioniMap[id] || []
+    const haInfluenzato = filosofi.filter(fil => outgoingIds.includes(fil.id))
+
+    // Filosofi che hanno influenzato questo (connessioni entranti)
+    const influenzatoDaIds = Object.entries(connessioniMap)
+        .filter(([, conns]) => conns.includes(id))
+        .map(([filId]) => filId)
+    const influenzatoDa = filosofi.filter(fil => influenzatoDaIds.includes(fil.id))
 
     // 🔑 CONCETTO: rendering condizionale — se non esiste mostra 404
     if (!f) {
@@ -135,23 +146,48 @@ export default function DettaglioFilosofo() {
                 </div>
             </div>
 
-            {/* Link agli altri filosofi */}
-            <div className="mt-10 pt-8 border-t border-stone-400 dark:border-stone-800">
-                <p className="text-xs text-stone-600 dark:text-stone-400 uppercase tracking-widest mb-4">Altri filosofi</p>
-                <div className="flex flex-wrap gap-2">
-                    {filosofi
-                        .filter((fil) => fil.id !== id)
-                        .map((fil) => (
-                            <Link
-                                key={fil.id}
-                                to={`/filosofo/${fil.id}`}
-                                className="text-sm text-stone-500 hover:text-[#d97757] transition-colors"
-                            >
-                                {fil.nome} →
-                            </Link>
-                        ))}
+            {/* Connessioni filosofiche */}
+            {(influenzatoDa.length > 0 || haInfluenzato.length > 0) && (
+                <div className="mt-10 pt-8 border-t border-stone-200 dark:border-stone-800 space-y-5">
+                    <p className="text-xs text-stone-500 uppercase tracking-widest">Connessioni filosofiche</p>
+
+                    {influenzatoDa.length > 0 && (
+                        <div>
+                            <p className="text-xs text-stone-400 mb-2">Influenzato da</p>
+                            <div className="flex flex-wrap gap-2">
+                                {influenzatoDa.map(fil => (
+                                    <Link
+                                        key={fil.id}
+                                        to={`/filosofo/${fil.id}`}
+                                        className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-[#d97757] border border-stone-200 dark:border-stone-700 transition-colors"
+                                    >
+                                        <span>{fil.emoji}</span>
+                                        <span>{fil.nome}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {haInfluenzato.length > 0 && (
+                        <div>
+                            <p className="text-xs text-stone-400 mb-2">Ha influenzato</p>
+                            <div className="flex flex-wrap gap-2">
+                                {haInfluenzato.map(fil => (
+                                    <Link
+                                        key={fil.id}
+                                        to={`/filosofo/${fil.id}`}
+                                        className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-[#d97757] border border-stone-200 dark:border-stone-700 transition-colors"
+                                    >
+                                        <span>{fil.emoji}</span>
+                                        <span>{fil.nome}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
-            </div>
+            )}
 
         </div>
     );

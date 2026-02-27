@@ -155,6 +155,9 @@ const filosofi = [
   },
 ]
 
+// Esporta la mappa delle connessioni per uso in altre pagine
+export const connessioniMap = Object.fromEntries(filosofi.map(f => [f.id, f.connessioni]))
+
 // coloriGruppo: bordo = colore vivido, bg = sfondo pastello chiaro, testo = testo scuro su sfondo chiaro
 const coloriGruppo = {
   'Idealismo': { bg: '#eff6ff', bordo: '#3b82f6', testo: '#1d4ed8' },
