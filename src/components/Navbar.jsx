@@ -18,7 +18,7 @@ export default function Navbar() {
                 <div className="md:hidden flex items-center gap-3">
                     <button
                         onClick={toggle}
-                        className="text-stone-500 dark:text-stone-400 hover:text-[#d97757] transition-colors"
+                        className="text-stone-500 dark:text-stone-400 hover:text-[#d97757] transition-colors cursor-pointer"
                         aria-label="Cambia tema"
                     >
                         {dark ? '☀️' : '🌙'}
@@ -41,7 +41,7 @@ export default function Navbar() {
                     <Link to="/contatti" className="text-stone-600 dark:text-stone-400 hover:text-[#d97757] text-sm transition-colors">Contatti</Link>
                     <button
                         onClick={toggle}
-                        className="text-stone-500 dark:text-stone-400 hover:text-[#d97757] transition-colors border-l border-[#e7e0d8] dark:border-stone-800 pl-6"
+                        className="text-stone-500 cursor-pointer dark:text-stone-400 hover:text-[#d97757] transition-colors border-l border-[#e7e0d8] dark:border-stone-800 pl-6"
                         aria-label="Cambia tema"
                     >
                         {dark ? '☀️' : '🌙'}

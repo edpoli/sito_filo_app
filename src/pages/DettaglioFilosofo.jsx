@@ -47,6 +47,7 @@ const lessicoMap = {
     "Cyborg": "cyborg",
     "Ironia": "ironia",
     "Volto": "volto-dell-altro",
+    "Traccia": "traccia",
     "Cura dell'anima": "cura-dell-anima",
 }
 
