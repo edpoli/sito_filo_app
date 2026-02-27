@@ -6,10 +6,20 @@ const categorie = ["Tutte", ...new Set(termini.map(t => t.categoria))]
 
 export default function Lessico() {
     const [filtro, setFiltro] = useState("Tutte")
+    const [ricerca, setRicerca] = useState('')
 
-    const terminiFiltrati = filtro === "Tutte"
-        ? termini
-        : termini.filter(t => t.categoria === filtro)
+    const terminiFiltrati = termini
+        .filter(t => filtro === "Tutte" || t.categoria === filtro)
+        .filter(t => {
+            if (!ricerca.trim()) return true
+            const q = ricerca.toLowerCase()
+            return (
+                t.termine.toLowerCase().includes(q) ||
+                t.categoria.toLowerCase().includes(q) ||
+                t.definizione.toLowerCase().includes(q) ||
+                t.autori.some(a => a.toLowerCase().includes(q))
+            )
+        })
 
     return (
         <div className="max-w-4xl mx-auto px-6 py-12">
@@ -25,6 +35,34 @@ export default function Lessico() {
                     I concetti fondamentali. Seleziona un termine per esplorarne definizione, uso e storia.
                 </p>
             </div>
+
+            {/* Barra di ricerca */}
+            <div className="relative max-w-sm mx-auto mb-6">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none text-sm">🔍</span>
+                <input
+                    type="text"
+                    value={ricerca}
+                    onChange={e => setRicerca(e.target.value)}
+                    placeholder="Cerca termine, autore, definizione…"
+                    className="w-full pl-9 pr-8 py-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:border-[#d97757] transition-colors"
+                />
+                {ricerca && (
+                    <button
+                        onClick={() => setRicerca('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 text-xs cursor-pointer"
+                    >
+                        ✕
+                    </button>
+                )}
+            </div>
+
+            {ricerca && (
+                <p className="text-center text-xs text-stone-400 mb-4">
+                    {terminiFiltrati.length === 0
+                        ? 'Nessun risultato trovato'
+                        : `${terminiFiltrati.length} risultat${terminiFiltrati.length === 1 ? 'o' : 'i'}`}
+                </p>
+            )}
 
             {/* Filtro categorie */}
             <div className="flex flex-wrap justify-center gap-2 mb-8">

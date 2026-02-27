@@ -1,7 +1,22 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { filosofi } from '../data/Filosofi'
 
 export default function Galleria() {
+    const [ricerca, setRicerca] = useState('')
+
+    const filosofiFiltrati = ricerca.trim() === ''
+        ? filosofi
+        : filosofi.filter(f => {
+            const q = ricerca.toLowerCase()
+            return (
+                f.nome.toLowerCase().includes(q) ||
+                f.corrente.toLowerCase().includes(q) ||
+                f.citazione.toLowerCase().includes(q) ||
+                f.concetti.some(c => c.toLowerCase().includes(q))
+            )
+        })
+
     return (
         <div className="max-w-4xl mx-auto px-6 py-12">
 
@@ -17,9 +32,37 @@ export default function Galleria() {
                 </p>
             </div>
 
+            {/* Barra di ricerca */}
+            <div className="relative max-w-sm mx-auto mb-8">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none text-sm">🔍</span>
+                <input
+                    type="text"
+                    value={ricerca}
+                    onChange={e => setRicerca(e.target.value)}
+                    placeholder="Cerca filosofo, corrente, concetto…"
+                    className="w-full pl-9 pr-8 py-2 text-sm rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:border-[#d97757] transition-colors"
+                />
+                {ricerca && (
+                    <button
+                        onClick={() => setRicerca('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 text-xs cursor-pointer"
+                    >
+                        ✕
+                    </button>
+                )}
+            </div>
+
+            {ricerca && (
+                <p className="text-center text-xs text-stone-400 mb-6">
+                    {filosofiFiltrati.length === 0
+                        ? 'Nessun risultato trovato'
+                        : `${filosofiFiltrati.length} risultat${filosofiFiltrati.length === 1 ? 'o' : 'i'}`}
+                </p>
+            )}
+
             {/* Griglia card */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filosofi.map((f) => (
+                {filosofiFiltrati.map((f) => (
                     <Link
                         key={f.id}
                         to={`/filosofo/${f.id}`}

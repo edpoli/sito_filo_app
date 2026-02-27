@@ -178,6 +178,18 @@ export default function MappaFilosofi() {
   const { dark } = useDarkMode()
   const [selezionato, setSelezionato] = useState(null)
   const [vistaAttiva, setVistaAttiva] = useState('griglia')
+  const [ricerca, setRicerca] = useState('')
+
+  const filosofiFiltrati = ricerca.trim() === ''
+    ? filosofi
+    : filosofi.filter(f => {
+      const q = ricerca.toLowerCase()
+      return (
+        f.nome.toLowerCase().includes(q) ||
+        f.gruppo.toLowerCase().includes(q) ||
+        f.citazione.toLowerCase().includes(q)
+      )
+    })
 
   const filosofoSelezionato = filosofi.find(f => f.id === selezionato)
 
@@ -248,7 +260,7 @@ export default function MappaFilosofi() {
       </div>
 
       {/* Tab vista */}
-      <div className="flex gap-2 px-6 py-4 border-b border-[#e7e0d8] dark:border-stone-800">
+      <div className="flex flex-wrap items-center gap-2 px-6 py-4 border-b border-[#e7e0d8] dark:border-stone-800">
         {['griglia', 'correnti'].map(v => (
           <button
             key={v}
@@ -262,6 +274,27 @@ export default function MappaFilosofi() {
             {v === 'griglia' ? '📋 Tutti i filosofi' : '🗂️ Per corrente'}
           </button>
         ))}
+
+        {/* Barra di ricerca */}
+        <div className="relative flex-1 min-w-45 max-w-xs ml-2">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none text-xs">🔍</span>
+          <input
+            type="text"
+            value={ricerca}
+            onChange={e => setRicerca(e.target.value)}
+            placeholder="Cerca filosofo, corrente…"
+            className="w-full pl-8 pr-7 py-1.5 text-xs rounded-full border border-[#e7e0d8] dark:border-stone-800 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:border-[#d97757] transition-colors font-serif"
+          />
+          {ricerca && (
+            <button
+              onClick={() => setRicerca('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 text-[10px] cursor-pointer"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
         {selezionato && (
           <button
             onClick={() => setSelezionato(null)}
@@ -279,14 +312,19 @@ export default function MappaFilosofi() {
 
           {vistaAttiva === 'griglia' && (
             <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))' }}>
-              {filosofi.map(f => <CardFilosofo key={f.id} f={f} />)}
+              {filosofiFiltrati.map(f => <CardFilosofo key={f.id} f={f} />)}
             </div>
+          )}
+
+          {filosofiFiltrati.length === 0 && (
+            <p className="text-center text-sm text-stone-400 mt-12">Nessun risultato trovato.</p>
           )}
 
           {vistaAttiva === 'correnti' && (
             <div className="flex flex-col gap-6">
               {gruppi.map(gruppo => {
-                const filoGruppo = filosofi.filter(f => f.gruppo === gruppo)
+                const filoGruppo = filosofiFiltrati.filter(f => f.gruppo === gruppo)
+                if (filoGruppo.length === 0) return null
                 const colori = coloriGruppo[gruppo] ?? { bordo: '#e7e0d8', testo: '#78716c' }
                 return (
                   <div key={gruppo}>
