@@ -6,17 +6,17 @@ const filosofi = [
   {
     id: 'agamben', nome: 'Agamben', emoji: '🏛️', gruppo: 'Biopolitica', anni: '1942–',
     citazione: 'Lo stato di eccezione è il paradigma di governo dominante.',
-    connessioni: ['esposito'],
+    connessioni: ['esposito', 'han'],
   },
   {
     id: 'arendt', nome: 'Arendt', emoji: '⚖️', gruppo: 'Filosofia Politica', anni: '1906–1975',
     citazione: 'Il male nasce dalla banalità, non dalla mostruosità.',
-    connessioni: ['cavarero'],
+    connessioni: ['cavarero', 'han'],
   },
   {
     id: 'baudrillard', nome: 'Baudrillard', emoji: '🪞', gruppo: 'Post-strutturalismo', anni: '1929–2007',
     citazione: 'Il reale non è più che un pretesto per il modello.',
-    connessioni: [],
+    connessioni: ['han'],
   },
   {
     id: 'blumenberg', nome: 'Blumenberg', emoji: '📚', gruppo: 'Ermeneutica', anni: '1920–1996',
@@ -46,7 +46,7 @@ const filosofi = [
   {
     id: 'derrida', nome: 'Derrida', emoji: '✂️', gruppo: 'Decostruzionismo', anni: '1930–2004',
     citazione: "Non c'è nulla al di fuori del testo.",
-    connessioni: ['butler'],
+    connessioni: ['butler', 'levinas'],
   },
   {
     id: 'esposito', nome: 'Esposito', emoji: '🛡️', gruppo: 'Biopolitica', anni: '1950–',
@@ -61,17 +61,17 @@ const filosofi = [
   {
     id: 'foucault', nome: 'Foucault', emoji: '👁️', gruppo: 'Post-strutturalismo', anni: '1926–1984',
     citazione: 'Il potere è ovunque perché viene da ovunque.',
-    connessioni: ['derrida', 'agamben', 'esposito'],
+    connessioni: ['derrida', 'agamben', 'esposito', 'butler', 'han', 'haraway'],
   },
   {
     id: 'freud', nome: 'Freud', emoji: '🧠', gruppo: 'Psicoanalisi', anni: '1856–1939',
     citazione: "L'inconscio governa la nostra vita.",
-    connessioni: ['jung', 'deleuze'],
+    connessioni: ['jung', 'deleuze', 'butler'],
   },
   {
     id: 'han', nome: 'Byung-Chul Han', emoji: '📱', gruppo: 'Filosofia della tecnologia', anni: '1959–',
     citazione: 'La società della trasparenza è una società della sfiducia.',
-    connessioni: ['agamben', 'arendt', 'foucault', 'heidegger'],
+    connessioni: [],
   },
   {
     id: 'haraway', nome: 'Haraway', emoji: '🤖', gruppo: 'Studi femministi della scienza', anni: '1944–',
@@ -81,17 +81,17 @@ const filosofi = [
   {
     id: 'hegel', nome: 'Hegel', emoji: '🌀', gruppo: 'Idealismo', anni: '1770–1831',
     citazione: 'Tutto ciò che è reale è razionale.',
-    connessioni: ['marx', 'heidegger', 'nietzsche', 'bodei'],
+    connessioni: ['marx', 'heidegger', 'nietzsche', 'bodei', 'derrida', 'butler', 'levinas', 'kierkegaard'],
   },
   {
     id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
     citazione: "Il linguaggio è la casa dell'essere.",
-    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben'],
+    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han'],
   },
   {
     id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
     citazione: 'Tornare alle cose stesse.',
-    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka'],
+    connessioni: ['heidegger', 'fink', 'arendt', 'levinas', 'patocka', 'derrida'],
   },
   {
     id: 'jankelevitch', nome: 'Jankélévitch', emoji: '🎵', gruppo: 'Filosofia morale', anni: '1903–1985',
@@ -104,24 +104,29 @@ const filosofi = [
     connessioni: [],
   },
   {
+    id: 'kierkegaard', nome: 'Kierkegaard', emoji: '📓', gruppo: 'Esistenzialismo', anni: '1813–1855',
+    citazione: 'La soggettività è la verità.',
+    connessioni: ['heidegger', 'jankelevitch'],
+  },
+  {
     id: 'levinas', nome: 'Levinas', emoji: '👤', gruppo: 'Fenomenologia', anni: '1906–1995',
     citazione: 'Il volto dell\'altro è la prima parola.',
-    connessioni: ['derrida'],
+    connessioni: ['derrida', 'cavarero', 'butler'],
   },
   {
     id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
     citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
-    connessioni: ['foucault'],
+    connessioni: ['foucault', 'deleuze', 'derrida', 'baudrillard', 'arendt', 'han', 'haraway'],
   },
   {
     id: 'nietzsche', nome: 'Nietzsche', emoji: '⚡', gruppo: 'Esistenzialismo', anni: '1844–1900',
     citazione: 'Diventa ciò che sei.',
-    connessioni: ['heidegger', 'deleuze', 'foucault'],
+    connessioni: ['heidegger', 'deleuze', 'foucault', 'derrida', 'han'],
   },
   {
     id: 'patocka', nome: 'Patočka', emoji: '🌍', gruppo: 'Fenomenologia', anni: '1907–1977',
     citazione: 'Vivere nella verità è il compito fondamentale.',
-    connessioni: [],
+    connessioni: ['derrida'],
   },
   {
     id: 'rovelli', nome: 'Rovelli', emoji: '⚛️', gruppo: 'Filosofia della fisica', anni: '1956–',
@@ -168,7 +173,7 @@ const HAI_SCHEDA = new Set([
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
   'marx', 'nietzsche',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
-  'esposito', 'han', 'haraway', 'jankelevitch', 'levinas', 'patocka', 'rovelli',
+  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'patocka', 'rovelli',
 ])
 
 const gruppi = [...new Set(filosofi.map(f => f.gruppo))]
@@ -249,7 +254,7 @@ export default function MappaFilosofi() {
   }
 
   return (
-    <div className="font-serif bg-[#faf8f4] dark:bg-stone-950 text-stone-900 dark:text-stone-100 min-h-[calc(100vh-57px)] transition-colors duration-300">
+    <div className="font-cinzel bg-[#faf8f4] dark:bg-stone-950 text-stone-900 dark:text-stone-100 min-h-[calc(100vh-57px)] transition-colors duration-300">
 
       {/* Intestazione */}
       <div className="border-b border-[#e7e0d8] dark:border-stone-800 px-6 py-4">
@@ -261,17 +266,17 @@ export default function MappaFilosofi() {
 
       {/* Tab vista */}
       <div className="flex flex-wrap items-center gap-2 px-6 py-4 border-b border-[#e7e0d8] dark:border-stone-800">
-        {['griglia', 'correnti'].map(v => (
+        {['griglia', 'correnti', 'lista'].map(v => (
           <button
             key={v}
             onClick={() => setVistaAttiva(v)}
-            className={`px-4 py-1.5 rounded-full text-xs cursor-pointer font-serif border transition-all duration-200
+            className={`px-4 py-1.5 rounded-full text-xs cursor-pointer font-cinzel border transition-all duration-200
               ${vistaAttiva === v
                 ? 'border-[#d97757] bg-[#d97757]/10 text-[#d97757]'
                 : 'border-[#e7e0d8] dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:border-stone-300 dark:hover:border-stone-600'
               }`}
           >
-            {v === 'griglia' ? '📋 Tutti i filosofi' : '🗂️ Per corrente'}
+            {v === 'griglia' ? '📋 Griglia' : v === 'correnti' ? '🗂️ Correnti' : '☰ Lista'}
           </button>
         ))}
 
@@ -283,7 +288,7 @@ export default function MappaFilosofi() {
             value={ricerca}
             onChange={e => setRicerca(e.target.value)}
             placeholder="Cerca filosofo, corrente…"
-            className="w-full pl-8 pr-7 py-1.5 text-xs rounded-full border border-[#e7e0d8] dark:border-stone-800 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:border-[#d97757] transition-colors font-serif"
+            className="w-full pl-8 pr-7 py-1.5 text-xs rounded-full border border-[#e7e0d8] dark:border-stone-800 bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:border-[#d97757] transition-colors font-cinzel"
           />
           {ricerca && (
             <button
@@ -298,7 +303,7 @@ export default function MappaFilosofi() {
         {selezionato && (
           <button
             onClick={() => setSelezionato(null)}
-            className="ml-auto px-4 py-1.5 rounded-full text-xs cursor-pointer font-serif border border-[#e7e0d8] dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors"
+            className="ml-auto px-4 py-1.5 rounded-full text-xs cursor-pointer font-cinzel border border-[#e7e0d8] dark:border-stone-800 text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors"
           >
             ✕ Deseleziona
           </button>
@@ -343,6 +348,43 @@ export default function MappaFilosofi() {
               })}
             </div>
           )}
+
+          {vistaAttiva === 'lista' && (
+            <div className="divide-y divide-stone-200 dark:divide-stone-800">
+              {filosofiFiltrati.map(f => {
+                const stato = getStato(f)
+                const colori = coloriGruppo[f.gruppo] ?? { bg: '#f8fafc', bordo: '#cbd5e1', testo: '#64748b' }
+                return (
+                  <div
+                    key={f.id}
+                    onClick={() => setSelezionato(selezionato === f.id ? null : f.id)}
+                    className={`flex items-center gap-3 px-3 py-2 cursor-pointer transition-all duration-150
+                      ${stato === 'dimmed' ? 'opacity-25' : ''}
+                      ${stato === 'selezionato'
+                        ? 'bg-stone-100 dark:bg-stone-900'
+                        : 'hover:bg-stone-50 dark:hover:bg-stone-900/60'
+                      }`}
+                    style={{ borderLeft: `3px solid ${stato === 'selezionato' ? colori.bordo : 'transparent'}` }}
+                  >
+                    <span className="text-lg w-7 shrink-0 text-center">{f.emoji}</span>
+                    <span className={`text-sm font-semibold w-32 shrink-0 ${stato === 'dimmed' ? 'text-stone-400 dark:text-stone-600' : 'text-stone-900 dark:text-stone-100'}`}>
+                      {f.nome}
+                    </span>
+                    <span className="text-[10px] text-stone-400 w-20 shrink-0">{f.anni}</span>
+                    <div style={{
+                      fontSize: 9, padding: '2px 8px', borderRadius: 99,
+                      border: `1px solid ${colori.bordo}66`,
+                      color: dark ? colori.bordo : colori.testo,
+                      background: dark ? colori.bordo + '18' : colori.bg,
+                      letterSpacing: 0.5, whiteSpace: 'nowrap',
+                    }}>
+                      {f.gruppo}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
 
         {/* Pannello connessioni laterale */}
@@ -358,7 +400,7 @@ export default function MappaFilosofi() {
               {HAI_SCHEDA.has(filosofoSelezionato.id) && (
                 <button
                   onClick={() => navigate(`/filosofo/${filosofoSelezionato.id}`)}
-                  className="mt-3 px-4 py-1.5 rounded-full text-[11px] cursor-pointer font-serif border border-[#d97757]/30 bg-[#d97757]/10 text-[#d97757] hover:bg-[#d97757]/20 transition-colors"
+                  className="mt-3 px-4 py-1.5 rounded-full text-[11px] cursor-pointer font-cinzel border border-[#d97757]/30 bg-[#d97757]/10 text-[#d97757] hover:bg-[#d97757]/20 transition-colors"
                 >
                   Vai alla scheda →
                 </button>

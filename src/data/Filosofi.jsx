@@ -240,6 +240,18 @@ export const filosofi = [
         concetti: ["Inconscio collettivo", "Archetipi", "Ombra", "Individuazione"],
     },
     {
+        id: "kierkegaard",
+        nome: "Søren Kierkegaard",
+        anni: "1813–1855",
+        corrente: "Esistenzialismo",
+        emoji: "📓",
+        colore: "border-amber-500 text-amber-500",
+        citazione: "La vita può essere compresa solo guardando indietro, ma deve essere vissuta guardando avanti.",
+        bio: "Søren Aabye Kierkegaard nasce a Copenaghen nel 1813, settimo figlio di un commerciante ansioso e profondamente religioso che aveva maledetto Dio bambino sulla brughiera dello Jutland — una colpa che pesava sulla famiglia come una sentenza. Studia teologia e filosofia all'Università di Copenaghen, dove si confronta con l'idealismo hegeliano che domina il pensiero europeo. La sua vita è segnata da due eventi fondamentali: la rottura del fidanzamento con Regine Olsen nel 1841 — che trasformerà in filosofia del singolo e dell'impegno — e la polemica con il giornale satirico Il Corsaro (1846), che lo rende oggetto di scherno pubblico. La sua produzione è in larga parte pseudonima: scrive sotto nomi diversi — Victor Eremita, Johannes de Silentio, Johannes Climacus, Anti-Climacus — ognuno portavoce di una prospettiva esistenziale irriducibile, una strategia di comunicazione indiretta che lascia al lettore la responsabilità della scelta. Enten – Eller (Aut-aut, 1843) articola la prima grande distinzione: lo stadio estetico — la vita dell'immediato, del godimento, della varietà infinita — contro lo stadio etico — la vita della scelta responsabile, dell'impegno, della continuità del sé. Timore e tremore (1843), firmato da Johannes de Silentio, è una meditazione radicale sul sacrificio di Isacco: Abramo non è un eroe etico ma un cavaliere della fede che compie un «salto» che sospende teleologicamente l'eticità — la sua obbedienza assoluta a Dio è incomunicabile, incomprensibile, solitaria. Il concetto dell'angoscia (1844) introduce la distinzione fondamentale tra la paura — che ha sempre un oggetto determinato — e l'angoscia, che è la vertigine della libertà stessa: il terrore di fronte alle proprie possibilità infinite. L'uomo, sintesi di finito e infinito, necessità e libertà, è condannato a scegliersi. La malattia mortale (1849) analizza la disperazione come malattia dello spirito: la disperazione non è l'opposto della fede ma la condizione di chi non vuole essere se stesso. Kierkegaard muore a Copenaghen nel 1855, a quarantadue anni, dopo un collasso improvviso per strada. Fu riscoperto nel Novecento come padre dell'esistenzialismo: Heidegger ne riprende l'analisi dell'angoscia e dell'Augenblick (l'attimo autentico) in Essere e tempo; Jaspers e Sartre si misurano con la sua nozione di esistenza come scelta individuale e irripetibile; Jankélévitch eredita la sua attenzione all'ironia come modo di essere nella verità.",
+        opere: ["Enten – Eller", "Timore e tremore", "Il concetto dell'angoscia", "Stadi sul cammino della vita", "La malattia mortale"],
+        concetti: ["Angoscia", "Stadi dell'esistenza", "Salto della fede", "Soggettività"],
+    },
+    {
         id: "levinas",
         nome: "Emmanuel Levinas",
         anni: "1906–1995",
