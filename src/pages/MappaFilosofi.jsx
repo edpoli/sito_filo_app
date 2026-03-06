@@ -41,7 +41,7 @@ const filosofi = [
   {
     id: 'deleuze', nome: 'Deleuze', emoji: '🌿', gruppo: 'Post-strutturalismo', anni: '1925–1995',
     citazione: 'Il pensiero nasce dal caos.',
-    connessioni: ['derrida'],
+    connessioni: ['derrida', 'morton'],
   },
   {
     id: 'derrida', nome: 'Derrida', emoji: '✂️', gruppo: 'Decostruzionismo', anni: '1930–2004',
@@ -76,7 +76,7 @@ const filosofi = [
   {
     id: 'haraway', nome: 'Haraway', emoji: '🤖', gruppo: 'Studi femministi della scienza', anni: '1944–',
     citazione: 'Preferirei essere un cyborg che una dea.',
-    connessioni: [],
+    connessioni: ['morton'],
   },
   {
     id: 'hegel', nome: 'Hegel', emoji: '🌀', gruppo: 'Idealismo', anni: '1770–1831',
@@ -86,7 +86,7 @@ const filosofi = [
   {
     id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
     citazione: "Il linguaggio è la casa dell'essere.",
-    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han', 'merleau-ponty'],
+    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han', 'merleau-ponty', 'morton'],
   },
   {
     id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
@@ -114,14 +114,19 @@ const filosofi = [
     connessioni: ['derrida', 'cavarero', 'butler'],
   },
   {
+    id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
+    citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
+    connessioni: ['foucault', 'deleuze', 'derrida', 'baudrillard', 'arendt', 'han', 'haraway'],
+  },
+  {
     id: 'merleau-ponty', nome: 'Merleau-Ponty', emoji: '🤲', gruppo: 'Fenomenologia', anni: '1908–1961',
     citazione: 'Il corpo è il veicolo dell\'essere nel mondo.',
     connessioni: ['butler', 'haraway', 'cavarero', 'levinas', 'derrida'],
   },
   {
-    id: 'marx', nome: 'Marx', emoji: '✊', gruppo: 'Materialismo', anni: '1818–1883',
-    citazione: 'I filosofi hanno interpretato il mondo; si tratta di cambiarlo.',
-    connessioni: ['foucault', 'deleuze', 'derrida', 'baudrillard', 'arendt', 'han', 'haraway'],
+    id: 'morton', nome: 'Morton', emoji: '🍄', gruppo: 'Ecologia filosofica', anni: '1968–',
+    citazione: 'La natura non esiste — almeno non nel modo in cui pensiamo.',
+    connessioni: [],
   },
   {
     id: 'nietzsche', nome: 'Nietzsche', emoji: '⚡', gruppo: 'Esistenzialismo', anni: '1844–1900',
@@ -152,11 +157,6 @@ const filosofi = [
     id: 'wittgenstein', nome: 'Wittgenstein', emoji: '🔷', gruppo: 'Filosofia del Linguaggio', anni: '1889–1951',
     citazione: 'Ciò di cui non si può parlare si deve tacere.',
     connessioni: ['derrida'],
-  },
-  {
-    id: 'morton', nome: 'Morton', emoji: '🍄', gruppo: 'Ecologia filosofica', anni: '1968–',
-    citazione: 'La natura non esiste — almeno non nel modo in cui pensiamo.',
-    connessioni: ['heidegger', 'deleuze', 'haraway'],
   },
 ]
 
