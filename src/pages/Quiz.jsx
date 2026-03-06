@@ -144,11 +144,10 @@ function Risultato({ vincitoreId, onRicomincia }) {
   }, []);
 
   const statsConfig = [
-    { key: "coerenza", label: "Coerenza", tipo: "bar" },
-    { key: "influenza", label: "Influenza", tipo: "bar" },
-    { key: "opere", label: "N° Opere", tipo: "numero" },
-    { key: "chiarezza", label: "Chiarezza", tipo: "bar" },
-    { key: "memabilita", label: "Memabilità", tipo: "bar" },
+    { key: "coerenza", label: "Coerenza" },
+    { key: "influenza", label: "Influenza" },
+    { key: "chiarezza", label: "Chiarezza" },
+    { key: "memabilita", label: "Memabilità" },
   ];
 
   return (
@@ -170,30 +169,20 @@ function Risultato({ vincitoreId, onRicomincia }) {
           Statistiche
         </p>
 
-        {statsConfig.map(({ key, label, tipo }) => (
+        {statsConfig.map(({ key, label }) => (
           <div key={key} className="mb-4">
             <div className="flex justify-between items-baseline mb-1.5">
               <span className="text-xs text-stone-500 uppercase tracking-widest">{label}</span>
               <span className={`text-sm font-bold tabular-nums ${f.colore}`}>
-                {tipo === "numero" ? `${f.stats[key]} opere` : f.stats[key]}
+                {f.stats[key]}
               </span>
             </div>
-            {tipo === "bar" && (
-              <div className="h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
-                <div
-                  className={`h-full ${f.bg} rounded-full transition-all duration-1000 ease-out`}
-                  style={{ width: animato ? `${f.stats[key]}%` : "0%" }}
-                />
-              </div>
-            )}
-            {tipo === "numero" && (
-              <div className="h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
-                <div
-                  className={`h-full ${f.bg} opacity-60 rounded-full transition-all duration-1000 ease-out`}
-                  style={{ width: animato ? `${Math.min(f.stats[key] * 2, 100)}%` : "0%" }}
-                />
-              </div>
-            )}
+            <div className="h-1.5 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
+              <div
+                className={`h-full ${f.bg} rounded-full transition-all duration-1000 ease-out`}
+                style={{ width: animato ? `${f.stats[key]}%` : "0%" }}
+              />
+            </div>
           </div>
         ))}
       </div>

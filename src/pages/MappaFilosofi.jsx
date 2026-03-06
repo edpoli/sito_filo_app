@@ -153,6 +153,11 @@ const filosofi = [
     citazione: 'Ciò di cui non si può parlare si deve tacere.',
     connessioni: ['derrida'],
   },
+  {
+    id: 'morton', nome: 'Morton', emoji: '🍄', gruppo: 'Ecologia filosofica', anni: '1968–',
+    citazione: 'La natura non esiste — almeno non nel modo in cui pensiamo.',
+    connessioni: ['heidegger', 'deleuze', 'haraway'],
+  },
 ]
 
 // Esporta la mappa delle connessioni per uso in altre pagine
@@ -180,6 +185,7 @@ const coloriGruppo = {
   'Filosofia morale': { bg: '#fefce8', bordo: '#eab308', testo: '#713f12' },
   'Filosofia della fisica': { bg: '#f0f9ff', bordo: '#38bdf8', testo: '#0c4a6e' },
   'Filosofia della storia': { bg: '#fdf6e8', bordo: '#b45309', testo: '#7c2d12' },
+  'Ecologia filosofica': { bg: '#ecfdf5', bordo: '#10b981', testo: '#065f46' },
 }
 
 const HAI_SCHEDA = new Set([

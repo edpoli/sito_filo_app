@@ -359,4 +359,16 @@ export const filosofi = [
         opere: ["Tractatus Logico-Philosophicus", "Ricerche Filosofiche"],
         concetti: ["Giochi linguistici", "Limiti del linguaggio", "Significato come uso"],
     },
+    {
+        id: "morton",
+        nome: "Timothy Morton",
+        anni: "1968–",
+        corrente: "Ecologia filosofica",
+        emoji: "🍄",
+        colore: "border-emerald-500 text-emerald-500",
+        citazione: "La natura non esiste — almeno non nel modo in cui pensiamo.",
+        bio: "Timothy Morton nasce a Londra nel 1968 e compie i suoi studi letterari e filosofici a Oxford. Dopo una lunga carriera in dipartimenti di letteratura inglese — dove studia il Romanticismo come primo momento di crisi ecologica moderna — approda alla filosofia attraverso l'Object-Oriented Ontology (OOO), corrente sviluppata con Graham Harman, Levi Bryant e Ian Bogost. È oggi professore di letteratura inglese e filosofia alla Rice University di Houston.\n\nIl suo punto di partenza è paradossale: il concetto di «Natura» — quella natura bucolica, pura, esterna agli esseri umani che il pensiero ecologico tradizionale pretende di difendere — è il principale ostacolo alla vera consapevolezza ecologica. In Ecology Without Nature (2007) mostra come la letteratura e la cultura abbiano costruito la Natura come oggetto estetico distante, creando la distanza che rende impossibile la responsabilità. Il vero pensiero ecologico deve cominciare dalla dissoluzione di questa distanza.\n\nHyperObjects (2013) è la sua opera più influente. Morton vi introduce il concetto di «iperoggetti»: entità massicciamente distribuite nel tempo e nello spazio rispetto agli esseri umani — il cambiamento climatico, l'insieme di tutto il materiale nucleare, la biosfera, il capitalismo — che sono perfettamente reali ma non si lasciano mai vedere nella loro totalità. Gli iperoggetti «finiscono» la Natura: dimostrano che non siamo fuori dagli ecosistemi ma dentro entità che ci eccedono da ogni parte.\n\nDark Ecology (2016) sviluppa la logica della coesistenza futura: un'ecologia che non si fonda su una Natura armoniosa da ripristinare, ma che accetta il lato oscuro, ironico e perturbante del vivente. Morton ha anche coniato il concetto di «iposoggetti» (Humankind, 2017): esseri che si trovano sempre-già dentro iperoggetti che li precedono e li eccedono, mai sovrani, sempre esposti. La sua scrittura mescola filosofia, letteratura, estetica e musica — è un appassionato di heavy metal, che legge come forma di dark ecology sonora.",
+        opere: ["Ecology Without Nature", "The Ecological Thought", "Hyperobjects", "Dark Ecology", "Humankind"],
+        concetti: ["Iperoggetti", "Dark Ecology", "Mesh", "Iposoggetti"],
+    },
 ];
