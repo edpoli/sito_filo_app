@@ -1,6 +1,6 @@
 # 🏛️ Filosofia Applicata
 
-Un'enciclopedia interattiva della filosofia contemporanea costruita con React. Esplora 31 grandi pensatori, naviga un lessico di oltre 50 concetti chiave e scopri a quale filosofo ti avvicini con un quiz personalizzato.
+Un'enciclopedia interattiva della filosofia contemporanea costruita con React. Esplora i grandi pensatori, naviga un lessico di oltre 50 concetti chiave e scopri a quale filosofo ti avvicini con un quiz personalizzato.
 
 🔗 **[Demo live](https://filosofiaapplicata.vercel.app/)**
 
@@ -8,7 +8,7 @@ Un'enciclopedia interattiva della filosofia contemporanea costruita con React. E
 
 ## Panoramica
 
-Filosofia Applicata è una single-page application pensata per rendere accessibile il pensiero filosofico del Novecento e del contemporaneo. Ogni filosofo ha una scheda dedicata con biografia, opere principali e concetti chiave. Una mappa interattiva mostra le connessioni intellettuali tra i pensatori, mentre un lessico navigabile permette di esplorare i termini fondamentali della disciplina.
+Filosofia Applicata è una single-page application pensata per rendere accessibile il pensiero filosofico occidentale, antico e contemporaneo. Ogni filosofo ha una scheda dedicata con biografia, opere principali e concetti chiave. Una mappa interattiva mostra le connessioni intellettuali tra i pensatori, mentre un lessico navigabile permette di esplorare i termini fondamentali della disciplina.
 
 ## Funzionalità
 
