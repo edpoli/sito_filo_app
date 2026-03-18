@@ -1,16 +1,66 @@
-# React + Vite
+# 🏛️ Filosofia Applicata
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un'enciclopedia interattiva della filosofia contemporanea costruita con React. Esplora 31 grandi pensatori, naviga un lessico di oltre 50 concetti chiave e scopri a quale filosofo ti avvicini con un quiz personalizzato.
 
-Currently, two official plugins are available:
+🔗 **[Demo live](https://sito-filo-app.vercel.app)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Panoramica
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Filosofia Applicata è una single-page application pensata per rendere accessibile il pensiero filosofico del Novecento e del contemporaneo. Ogni filosofo ha una scheda dedicata con biografia, opere principali e concetti chiave. Una mappa interattiva mostra le connessioni intellettuali tra i pensatori, mentre un lessico navigabile permette di esplorare i termini fondamentali della disciplina.
 
-## Expanding the ESLint configuration
+## Funzionalità
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Galleria dei Filosofi** — 31 schede dettagliate con biografia, citazioni, opere e concetti. Ricerca full-text per nome, corrente o concetto.
+- **Lessico Filosofico** — Oltre 50 termini organizzati per categoria e lettera, ciascuno con definizione approfondita e collegamenti ai filosofi di riferimento.
+- **Mappa delle Connessioni** — Visualizzazione interattiva delle relazioni intellettuali tra i pensatori: influenze, dialoghi, contrapposizioni.
+- **Quiz "Quale filosofo sei?"** — 10 domande situazionali che profilano l'utente su 13 filosofi, con risultato dettagliato e link alla scheda.
+- **Dark Mode** — Tema chiaro/scuro con persistenza via `localStorage` e Context API.
+- **Routing completo** — Navigazione multi-pagina con pagina 404 personalizzata.
+
+## Tech Stack
+
+| Tecnologia | Ruolo |
+|---|---|
+| **React 19** | UI e gestione dello stato |
+| **React Router 7** | Routing client-side |
+| **Tailwind CSS 4** | Styling utility-first |
+| **Vite 7** | Build tool e dev server |
+| **React Icons** | Iconografia |
+
+## Struttura del Progetto
+
+```
+src/
+├── components/        # Navbar, Footer
+├── context/           # DarkModeProvider (Context API)
+├── data/              # Dataset: filosofi, lessico, quiz, mappa
+├── pages/             # Home, Galleria, DettaglioFilosofo,
+│                      # Lessico, DettaglioTermine,
+│                      # MappaFilosofi, Quiz, Contatti, NotFound
+├── App.jsx            # Layout + Routes
+└── main.jsx           # Entry point
+```
+
+## Installazione
+
+```bash
+git clone https://github.com/edpoli/sito_filo_app.git
+cd sito_filo_app
+npm install
+npm run dev
+```
+
+L'app sarà disponibile su `http://localhost:5173`.
+
+## Build per la Produzione
+
+```bash
+npm run build
+npm run preview
+```
+
+## Licenza
+
+MIT
