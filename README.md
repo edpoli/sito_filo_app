@@ -2,7 +2,7 @@
 
 Un'enciclopedia interattiva della filosofia contemporanea costruita con React. Esplora 31 grandi pensatori, naviga un lessico di oltre 50 concetti chiave e scopri a quale filosofo ti avvicini con un quiz personalizzato.
 
-🔗 **[Demo live](https://sito-filo-app.vercel.app)**
+🔗 **[Demo live](https://filosofiaapplicata.vercel.app/)**
 
 ---
 
