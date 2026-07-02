@@ -21,7 +21,7 @@ export default function Home() {
             <div className="w-full max-w-lg text-center">
 
                 <p className="text-[#d97757] text-xs tracking-widest uppercase mb-5">
-                    Benvenuto su
+                    Benvenuto/a su
                 </p>
 
                 <div className="mb-8">
