@@ -20,9 +20,9 @@ export default function Home() {
         <div className="min-h-screen flex items-center justify-center p-8 font-serif">
             <div className="w-full max-w-lg text-center">
 
-                <p className="text-[#d97757] text-xs tracking-widest uppercase mb-5">
+                <h2 className="text-[#d97757] text-s tracking-widest uppercase mb-5">
                     Benvenuto/a su
-                </p>
+                </h2>
 
                 <div className="mb-8">
                     <h1 className="text-5xl font-black text-stone-900 dark:text-stone-100 mb-2">
