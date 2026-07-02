@@ -15,7 +15,7 @@ const mappaExtra = {
   heidegger: {
     nomeBreve: 'Heidegger',
     posizione: { x: 32, y: 43 },
-    connessioni: ['husserl', 'hegel', 'arendt', 'derrida', 'fink'],
+    connessioni: ['husserl', 'hegel', 'arendt', 'derrida', 'fink', 'vattimo'],
   },
   wittgenstein: {
     nomeBreve: 'Wittgenstein',
@@ -45,7 +45,7 @@ const mappaExtra = {
   bodei: {
     nomeBreve: 'Bodei',
     posizione: { x: 24, y: 70 },
-    connessioni: ['hegel'],
+    connessioni: ['hegel', 'vattimo'],
   },
   deleuze: {
     nomeBreve: 'Deleuze',
@@ -72,9 +72,13 @@ const mappaExtra = {
     nomeBreve: 'B.C. Han',
     posizione: {},
     connessioni: ['agamben', 'arendt', 'foucault', 'heidegger',]
-  }
+  },
 
-
+  vattimo: {
+    nomeBreve: 'Vattimo',
+    posizione: { x: 30, y: 58 },
+    connessioni: ['heidegger', 'derrida', 'foucault', 'bodei'],
+  },
 
 
 }

@@ -336,6 +336,18 @@ export const filosofi = [
         concetti: ["Relazionalismo", "Tempo", "Granularità", "Gravità quantistica"],
     },
     {
+        id: "vattimo",
+        nome: "Gianni Vattimo",
+        anni: "1936–2023",
+        corrente: "Ermeneutica",
+        emoji: "🌫️",
+        colore: "border-violet-300 text-violet-300",
+        citazione: "Il pensiero deve imparare a stare nella debolezza, non nella forza.",
+        bio: "Gianni Vattimo nasce a Torino nel 1936 e si forma alla scuola di Luigi Pareyson, il grande filosofo dell'interpretazione e della verità come ricerca infinita. Studia poi a Monaco con Hans-Georg Gadamer, di cui diventa uno degli interpreti più originali in Italia: l'ermeneutica gadameriana — la comprensione come evento storico radicato nella tradizione — è il punto di partenza da cui Vattimo costruisce la propria filosofia. L'altra stella polare è Martin Heidegger, letto non come il pensatore dell'autenticità esistenziale ma come il filosofo della fine della metafisica e dell'«indebolimento dell'essere».\n\nLa proposta che rende Vattimo internazionalmente noto è il pensiero debole, elaborato con Pier Aldo Rovatti nell'antologia omonima del 1983. Contro le «ontologie forti» che pretendono fondamenti assoluti e verità universali, Vattimo propone un pensiero consapevole della propria parzialità e radicato nella storia dell'essere come evento, non come struttura. La «debolezza» non è un difetto: è la condizione del pensiero post-metafisico, che rinuncia alla violenza del fondamento. Ne La fine della modernità (1985) questo indebolimento diventa la categoria interpretativa della condizione postmoderna: non relativismo nichilista, ma nichilismo che si converte in emancipazione.\n\nNegli anni Novanta e Duemila il pensiero di Vattimo si apre alla politica e alla religione. Credere di credere (1996) è una riflessione autobiografica sul ritorno alla fede cristiana reinterpretata in chiave debole: la fede non come adesione a dogmi metafisici ma come orientamento etico verso la carità. Nichilismo ed emancipazione (2003) collega il nichilismo al progetto di liberazione dei soggetti storicamente oppressi. Eletto al Parlamento Europeo nel 1999 e nel 2004, ha unito impegno filosofico e impegno politico con una coerenza rara. È morto a Torino nel 2023.",
+        opere: ["Il pensiero debole (con Rovatti)", "La fine della modernità", "Credere di credere", "Oltre l'interpretazione", "Nichilismo ed emancipazione"],
+        concetti: ["Pensiero debole", "Indebolimento dell'essere", "Ermeneutica", "Postmoderno", "Nichilismo emancipativo"],
+    },
+    {
         id: "vico",
         nome: "Giambattista Vico",
         anni: "1668–1744",
