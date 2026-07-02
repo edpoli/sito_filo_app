@@ -1,4 +1,5 @@
 import { FaInstagram } from 'react-icons/fa'
+import { SiSubstack } from 'react-icons/si'
 
 export default function Footer() {
     return (
@@ -9,17 +10,31 @@ export default function Footer() {
                     Filosofia Applicata - Edoardo Poli ©2026
                 </p>
 
-                <a
-                    href="https://www.instagram.com/filosofia_applicata/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 text-[#d97757] hover:text-[#c86843] transition-colors duration-200 font-black"
-                >
-                    <FaInstagram className="text-lg" />
-                    <span className="tracking-wide text-sm uppercase">
-                        Instagram
-                    </span>
-                </a>
+                <div className="flex items-center justify-center gap-6">
+                    <a
+                        href="https://www.instagram.com/filosofia_applicata/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 text-[#d97757] hover:text-[#c86843] transition-colors duration-200 font-black"
+                    >
+                        <FaInstagram className="text-lg" />
+                        <span className="tracking-wide text-sm uppercase">
+                            Instagram
+                        </span>
+                    </a>
+
+                    <a
+                        href="https://filosofiaapplicata.substack.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 text-[#d97757] hover:text-[#c86843] transition-colors duration-200 font-black"
+                    >
+                        <SiSubstack className="text-lg" />
+                        <span className="tracking-wide text-sm uppercase">
+                            Substack
+                        </span>
+                    </a>
+                </div>
 
             </div>
         </footer>
