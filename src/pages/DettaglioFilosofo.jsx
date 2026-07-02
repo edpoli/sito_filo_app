@@ -52,6 +52,7 @@ const lessicoMap = {
     "Pensiero debole": "pensiero-debole",
     "Stadio dello specchio": "stadio-dello-specchio",
     "Reale, Simbolico, Immaginario": "reale-simbolico-immaginario",
+    "Verum factum": "verum-factum",
 }
 
 export default function DettaglioFilosofo() {
