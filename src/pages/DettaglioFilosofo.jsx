@@ -50,6 +50,8 @@ const lessicoMap = {
     "Traccia": "traccia",
     "Cura dell'anima": "cura-dell-anima",
     "Pensiero debole": "pensiero-debole",
+    "Stadio dello specchio": "stadio-dello-specchio",
+    "Reale, Simbolico, Immaginario": "reale-simbolico-immaginario",
 }
 
 export default function DettaglioFilosofo() {

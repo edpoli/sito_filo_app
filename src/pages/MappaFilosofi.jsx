@@ -66,7 +66,7 @@ const filosofi = [
   {
     id: 'freud', nome: 'Freud', emoji: '🧠', gruppo: 'Psicoanalisi', anni: '1856–1939',
     citazione: "L'inconscio governa la nostra vita.",
-    connessioni: ['jung', 'deleuze', 'butler'],
+    connessioni: ['jung', 'lacan', 'deleuze', 'butler'],
   },
   {
     id: 'han', nome: 'Byung-Chul Han', emoji: '📱', gruppo: 'Filosofia della tecnologia', anni: '1959–',
@@ -107,6 +107,11 @@ const filosofi = [
     id: 'kierkegaard', nome: 'Kierkegaard', emoji: '📓', gruppo: 'Esistenzialismo', anni: '1813–1855',
     citazione: 'La soggettività è la verità.',
     connessioni: ['heidegger', 'jankelevitch'],
+  },
+  {
+    id: 'lacan', nome: 'Lacan', emoji: '🪢', gruppo: 'Psicoanalisi', anni: '1901–1981',
+    citazione: "L'inconscio è strutturato come un linguaggio.",
+    connessioni: ['deleuze', 'derrida', 'butler'],
   },
   {
     id: 'levinas', nome: 'Levinas', emoji: '👤', gruppo: 'Fenomenologia', anni: '1906–1995',
@@ -198,7 +203,7 @@ const HAI_SCHEDA = new Set([
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
   'marx', 'nietzsche',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
-  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'merleau-ponty', 'patocka', 'rovelli', 'vico', 'vattimo',
+  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'lacan', 'levinas', 'merleau-ponty', 'patocka', 'rovelli', 'vico', 'vattimo',
 ])
 
 const gruppi = [...new Set(filosofi.map(f => f.gruppo))]
