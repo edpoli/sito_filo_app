@@ -144,6 +144,11 @@ const filosofi = [
     connessioni: [],
   },
   {
+    id: 'vattimo', nome: 'Vattimo', emoji: '🌫️', gruppo: 'Ermeneutica', anni: '1936–2023',
+    citazione: 'Il pensiero deve imparare a stare nella debolezza, non nella forza.',
+    connessioni: ['heidegger', 'derrida', 'foucault', 'bodei'],
+  },
+  {
     id: 'vico', nome: 'Vico', emoji: '📜', gruppo: 'Filosofia della storia', anni: '1668–1744',
     citazione: 'Il vero e il fatto si convertono.',
     connessioni: ['blumenberg', 'hegel', 'bodei'],
@@ -193,7 +198,7 @@ const HAI_SCHEDA = new Set([
   'bodei', 'deleuze', 'weil', 'arendt', 'husserl', 'fink', 'jung', 'freud',
   'marx', 'nietzsche',
   'agamben', 'baudrillard', 'blumenberg', 'butler', 'cavarero',
-  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'merleau-ponty', 'patocka', 'rovelli', 'vico',
+  'esposito', 'han', 'haraway', 'jankelevitch', 'kierkegaard', 'levinas', 'merleau-ponty', 'patocka', 'rovelli', 'vico', 'vattimo',
 ])
 
 const gruppi = [...new Set(filosofi.map(f => f.gruppo))]

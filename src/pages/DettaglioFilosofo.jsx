@@ -49,6 +49,7 @@ const lessicoMap = {
     "Volto": "volto-dell-altro",
     "Traccia": "traccia",
     "Cura dell'anima": "cura-dell-anima",
+    "Pensiero debole": "pensiero-debole",
 }
 
 export default function DettaglioFilosofo() {
