@@ -86,7 +86,7 @@ const filosofi = [
   {
     id: 'heidegger', nome: 'Heidegger', emoji: '🌲', gruppo: 'Fenomenologia', anni: '1889–1976',
     citazione: "Il linguaggio è la casa dell'essere.",
-    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han', 'merleau-ponty', 'morton'],
+    connessioni: ['derrida', 'fink', 'arendt', 'levinas', 'patocka', 'agamben', 'han', 'merleau-ponty', 'morton', 'lacan'],
   },
   {
     id: 'husserl', nome: 'Husserl', emoji: '🔬', gruppo: 'Fenomenologia', anni: '1859–1938',
