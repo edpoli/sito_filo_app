@@ -12,7 +12,7 @@ Filosofia Applicata è una single-page application pensata per rendere accessibi
 
 ## Funzionalità
 
-- **Galleria dei Filosofi** — 31 schede dettagliate con biografia, citazioni, opere e concetti. Ricerca full-text per nome, corrente o concetto.
+- **Galleria dei Filosofi** — Schede dettagliate con biografia, citazioni, opere e concetti. Ricerca full-text per nome, corrente o concetto.
 - **Lessico Filosofico** — Oltre 50 termini organizzati per categoria e lettera, ciascuno con definizione approfondita e collegamenti ai filosofi di riferimento.
 - **Mappa delle Connessioni** — Visualizzazione interattiva delle relazioni intellettuali tra i pensatori: influenze, dialoghi, contrapposizioni.
 - **Quiz "Quale filosofo sei?"** — 10 domande situazionali che profilano l'utente su 13 filosofi, con risultato dettagliato e link alla scheda.
